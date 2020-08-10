@@ -1,0 +1,24 @@
+{
+  "name": "lassi-ilakkanankal",
+  "version": "1.0.0",
+  "description": "லஸ்ஸி மென்பொருளுக்காக இலக்கணங்கள்.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"பிழை: சோதனை ஒன்றும் இல்லை.\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julienmalard/lassi-ilakkanangal.git"
+  },
+  "author": "Julien Malard",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/julienmalard/lassi-ilakkanangal/issues"
+  },
+  "homepage": "https://github.com/julienmalard/lassi-ilakkanangal#readme",
+  "dependencies": {
+    "nearley": "^2.19.1",
+    "nearley-loader": "^2.0.0",
+    "nearley-reverse": "git+https://git@github.com/tjvr/nearley-reverse.git"
+  }
+}
