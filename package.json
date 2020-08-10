@@ -2,7 +2,7 @@
   "name": "lassi-ilakkanankal",
   "version": "1.0.0",
   "description": "லஸ்ஸி மென்பொருளுக்காக இலக்கணங்கள்.",
-  "main": "index.js",
+  "main": "மூலம்/லஸ்ஸியிலக்கணங்கள்/வாடிக்கையாளர்.js",
   "scripts": {
     "test": "echo \"பிழை: சோதனை ஒன்றும் இல்லை.\" && exit 1"
   },
