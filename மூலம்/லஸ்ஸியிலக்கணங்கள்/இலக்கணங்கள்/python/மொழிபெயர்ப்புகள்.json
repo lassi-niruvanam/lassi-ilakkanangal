@@ -276,7 +276,7 @@
     "?simple_stmt : small_stmt ( \";\" small_stmt ) * [ \";\" ] _NEWLINE": {
       "பெயர்ப்பு": {}
     },
-    "?small_stmt : ( expr_stmt | print_stmt | del_stmt | pass_stmt | flow_stmt \n          | import_stmt | global_stmt | exec_stmt | assert_stmt )": {
+    "?small_stmt : ( expr_stmt | xtmt | del_stmt | pass_stmt | flow_stmt \n          | import_stmt | global_stmt | exec_stmt | assert_stmt )": {
       "பெயர்ப்பு": {}
     },
     "expr_stmt : testlist augassign ( yield_expr | testlist ) -> augassign2 \n         | testlist ( \"=\" ( yield_expr | testlist ) ) + -> assign \n         | testlist": {
@@ -821,6 +821,6 @@
     }
   },
   "மொழிபெயர்ப்பாளர்கள்": [
-    "ம. ஜூலீஎன்"
+    "ம. ஜூலீஎன் (julien.malard@mail.mcgill.ca)"
   ]
 }
