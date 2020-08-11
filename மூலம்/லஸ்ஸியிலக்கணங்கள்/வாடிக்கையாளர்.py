@@ -2,7 +2,6 @@ import json
 import os
 from warnings import warn
 
-import pkg_resources
 import semantic_version
 from lark import Lark, Tree
 from lark.reconstruct import Reconstructor
@@ -164,13 +163,14 @@ class நிரல்மொழித்தகவல்கள்(object):
                         if விதி not in மொழிபெயர்ப்பு_அகராதி['விதிகள்']:
                             மொழிபெயர்ப்பு_அகராதி['விதிகள்'][விதி] = {'பெயர்ப்பு': {}}
 
-            மொழிப்பெயர்_கோப்பு = தன்._வளன்_கோப்பு_பெற(f"{நிரல்மொழி}/மொழிபெயர்ப்புகள்.json")
             try:
                 முன் = தன்._மொழிபெயர்ப்புகள்[நிரல்மொழி]
             except KeyError:
                 முன் = {}
 
             தன்._புதுப்பிப்பு(மொழிபெயர்ப்பு_அகராதி, முன்)
+
+            மொழிப்பெயர்_கோப்பு = f"{தன்.கோப்புறை}/இலக்கணங்கள்/{நிரல்மொழி}/மொழிபெயர்ப்புகள்.json"
             with open(மொழிப்பெயர்_கோப்பு, 'w', encoding='utf8') as கோ:
                 json.dump(மொழிபெயர்ப்பு_அகராதி, கோ, ensure_ascii=False, indent=2)
 
@@ -197,15 +197,9 @@ class நிரல்மொழித்தகவல்கள்(object):
         return தகவல்_அகராதி, மொழிபெயர்ப்பு_அகராதி
 
     def _இலக்கணம்_உரை_பெற(தன், நிரல்மொழி, பதிப்பு):
-        return pkg_resources.resource_string(
-            __name__, f'இலக்கணங்கள்/{நிரல்மொழி}/{தன்.தகவல்(நிரல்மொழி, "இலக்கணம்", பதிப்பு=பதிப்பு)}'
-        ).decode('utf8')
-
-    @staticmethod
-    def _வளன்_கோப்பு_பெற(வளன்):
-        return pkg_resources.resource_filename(
-            __name__, f'இலக்கணங்கள்/{வளன்}'
-        )
+        கோப்பு = f'{தன்.கோப்புறை}/இலக்கணங்கள்/{நிரல்மொழி}/{தன்.தகவல்(நிரல்மொழி, "இலக்கணம்", பதிப்பு=பதிப்பு)}'
+        with open(கோப்பு, encoding='utf8', mode='r') as கோ:
+            return கோ.readlines()
 
     def _புதுப்பிப்பு(தன், அக, பு):
         for சா, ம in பு.items():
