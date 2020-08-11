@@ -16,9 +16,5 @@
     "url": "https://github.com/julienmalard/lassi-ilakkanangal/issues"
   },
   "homepage": "https://github.com/julienmalard/lassi-ilakkanangal#readme",
-  "dependencies": {
-    "nearley": "^2.19.1",
-    "nearley-loader": "^2.0.0",
-    "nearley-reverse": "git+https://git@github.com/tjvr/nearley-reverse.git"
-  }
+  "dependencies": {}
 }

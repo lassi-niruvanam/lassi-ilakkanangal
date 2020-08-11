@@ -286,7 +286,9 @@
       "பெயர்ப்பு": {}
     },
     "print_stmt : \"print\" ( [ test ( \",\" test ) * [ \",\" ] ] | \">>\" test [ ( \",\" test ) + [ \",\" ] ] )": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {
+        "த": "print_stmt : \"பதிப்பி\" ( [ test ( \",\" test ) * [ \",\" ] ] | \">>\" test [ ( \",\" test ) + [ \",\" ] ] )"
+      }
     },
     "del_stmt : \"del\" exprlist": {
       "பெயர்ப்பு": {}
@@ -412,7 +414,10 @@
       "பெயர்ப்பு": {}
     },
     "?not_test : \"not\" not_test | comparison": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {
+        "த": "?not_test : not_test \"இல்லை\" | comparison",
+        "fr": "?not_test : \"pas\" not_test | comparison"
+      }
     },
     "?comparison : expr ( comp_op expr ) *": {
       "பெயர்ப்பு": {}
@@ -676,7 +681,10 @@
       "பெயர்ப்பு": {}
     },
     "?not_test : \"not\" not_test -> not \n         | comparison": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {
+        "த": "?not_test : not_test \"இல்லை\" -> not \n         | comparison",
+        "fr": "?not_test : \"pas\" not_test -> not \n         | comparison"
+      }
     },
     "?comparison : expr ( _comp_op expr ) *": {
       "பெயர்ப்பு": {}
