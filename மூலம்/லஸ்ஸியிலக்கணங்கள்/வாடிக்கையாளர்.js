@@ -1,8 +1,14 @@
 const fs = require('fs')
+const testFolder = 'இலக்கணங்கள்'
+
+const getDirectories = source =>
+  readdirSync(source, { withFileTypes: true })
+    .filter(dirent => dirent.isDirectory())
+    .map(dirent => dirent.name)
 
 const _மொழி_தகவல்கள் =
  () => {
-  fs.readdirSync(testFolder, (err, files) => {
+  fs.readdirSync(testFolder), (err, files) => {
   files.forEach(file => {
     console.log(file);
   });

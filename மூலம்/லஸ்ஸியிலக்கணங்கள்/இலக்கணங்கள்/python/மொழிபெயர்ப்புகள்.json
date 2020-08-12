@@ -816,9 +816,6 @@
     "%declare INDENT DEDENT": {
       "பெயர்ப்பு": {}
     },
-    "?small_stmt : ( expr_stmt | xtmt | del_stmt | pass_stmt | flow_stmt \n          | import_stmt | global_stmt | exec_stmt | assert_stmt )": {
-      "பெயர்ப்பு": {}
-    },
     "DEC_NUMBER : /0|[1-9]\\d*/i": {
       "பெயர்ப்பு": {}
     }
