@@ -12,10 +12,6 @@ pair   : string ":" value
 string : ESCAPED_STRING
 
 DEC_NUMBER: /((\d+\.\d*|\.\d+)(e[-+]?\d+)?|\d+(e[-+]?\d+))|(\d+)/i
-
-_STRING_INNER: /.*?/
-_STRING_ESC_INNER: _STRING_INNER /(?<!\\)(\\\\)*?/
-ESCAPED_STRING : "\"" _STRING_ESC_INNER "\""
-
-WS: /[ \t\f\r\n]/+
+%import common.ESCAPED_STRING
+%import common.WS
 %ignore WS
