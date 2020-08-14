@@ -5,7 +5,7 @@ from warnings import warn
 import semantic_version
 from lark import Lark, Tree
 from lark.reconstruct import Reconstructor
-from எண்ணிக்கை import சுருங்குறித்தொடர் as சு, உரைக்கு as உ
+from எண்ணிக்கை import சுருங்குறித்தொடர் as சு, உரைக்கு as உ, முறைமைகள்
 
 from nuchabäl import chijun
 
@@ -131,6 +131,8 @@ class நிரல்மொழித்தகவல்கள்(object):
             return str(பதிப்புகள்[-1])
 
     def எண்ணுரு_பெறு(தன், நிரல்மொழி, மொழி, எண்ணுரு, பதிப்பு=None):
+        if எண்ணுரு in முறைமைகள்:
+            return எண்ணுரு
         try:
             return chijun.rajilanïk(எண்ணுரு or மொழி)
         except ValueError:
