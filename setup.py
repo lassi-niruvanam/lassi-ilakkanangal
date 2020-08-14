@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='lassi-ilakkanankal',
-    version='1.0.3',
+    version='1.0.4',
     packages=find_packages(where="மூலம்"),
     package_dir={"": "மூலம்"},
     url='https://github.com/lassi-samaaj/lassi-ilakkanangal',
