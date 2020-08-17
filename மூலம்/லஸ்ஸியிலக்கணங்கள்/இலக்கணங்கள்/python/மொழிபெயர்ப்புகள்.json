@@ -214,8 +214,8 @@
       "string : STRING | LONG_STRING",
       "COMMENT : /#[^\\n]*/",
       "NEWLINE : ( /\\r?\\n[\\t ]*/ | COMMENT ) +",
-      "STRING : /[ubf]?r?(\"(?!\"\").*?(?<!\\\\)(\\\\\\\\)*?\"|'(?!'').*?(?<!\\\\)(\\\\\\\\)*?')/i",
-      "LONG_STRING : /[ubf]?r?(\"\"\".*?(?<!\\\\)(\\\\\\\\)*?\"\"\"|'''.*?(?<!\\\\)(\\\\\\\\)*?''')/is",
+      "STRING . 2 : /[ubf]?r?(\"(?!\"\").*?(?<!\\\\)(\\\\\\\\)*?\"|'(?!'').*?(?<!\\\\)(\\\\\\\\)*?')/i",
+      "LONG_STRING . 2 : /[ubf]?r?(\"\"\".*?(?<!\\\\)(\\\\\\\\)*?\"\"\"|'''.*?(?<!\\\\)(\\\\\\\\)*?''')/is",
       "HEX_NUMBER . 2 : /0x[\\da-f]*/i",
       "OCT_NUMBER . 2 : /0o[0-7]*/i",
       "BIN_NUMBER . 2 : /0b[0-1]*/i",
@@ -288,7 +288,8 @@
     "print_stmt : \"print\" ( [ test ( \",\" test ) * [ \",\" ] ] | \">>\" test [ ( \",\" test ) + [ \",\" ] ] )": {
       "பெயர்ப்பு": {
         "த": "print_stmt : \"பதிப்பி\" ( [ test ( \",\" test ) * [ \",\" ] ] | \">>\" test [ ( \",\" test ) + [ \",\" ] ] )",
-        "fr": "print_stmt : \"afficher\" ( [ test ( \",\" test ) * [ \",\" ] ] | \">>\" test [ ( \",\" test ) + [ \",\" ] ] )"
+        "fr": "print_stmt : \"afficher\" ( [ test ( \",\" test ) * [ \",\" ] ] | \">>\" test [ ( \",\" test ) + [ \",\" ] ] )",
+        "हिं": "print_stmt : \"चपाना\" ( [ test ( \",\" test ) * [ \",\" ] ] | \">>\" test [ ( \",\" test ) + [ \",\" ] ] )"
       }
     },
     "del_stmt : \"del\" exprlist": {
@@ -304,7 +305,9 @@
       "பெயர்ப்பு": {}
     },
     "break_stmt : \"break\"": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {
+        "हिं": "break_stmt : \"अवरोध\""
+      }
     },
     "continue_stmt : \"continue\"": {
       "பெயர்ப்பு": {}
@@ -312,7 +315,8 @@
     "return_stmt : \"return\" [ testlist ]": {
       "பெயர்ப்பு": {
         "த": "return_stmt : \"பின்கொடு\" [ testlist ]",
-        "fr": "return_stmt : \"renvoie\" [ testlist ]"
+        "fr": "return_stmt : \"renvoie\" [ testlist ]",
+        "हिं": "return_stmt : \"लौटा\" [ testlist ]"
       }
     },
     "yield_stmt : yield_expr": {
@@ -326,7 +330,8 @@
     },
     "import_name : \"import\" dotted_as_names": {
       "பெயர்ப்பு": {
-        "த": "import_name : \"உள்ளீடு\" dotted_as_names"
+        "த": "import_name : \"உள்ளீடு\" dotted_as_names",
+        "हिं": "import_name : \"आयात\" dotted_as_names"
       }
     },
     "import_from : \"from\" ( \".\" * dotted_name | \".\" + ) \"import\" ( \"*\" | \"(\" import_as_names \")\" | import_as_names )": {
@@ -364,7 +369,8 @@
     "if_stmt : \"if\" test \":\" suite ( \"elif\" test \":\" suite ) * [ \"else\" \":\" suite ]": {
       "பெயர்ப்பு": {
         "த": "if_stmt : test \"ஆனால்\" \":\" suite ( \"இல்லை\" test \"ஆனால்\" \":\" suite ) * [ \"ஏதேனில்\" \":\" suite ]",
-        "fr": "if_stmt : \"si\" test \":\" suite ( \"sinonsi\" test \":\" suite ) * [ \"sinon\" \":\" suite ]"
+        "fr": "if_stmt : \"si\" test \":\" suite ( \"sinonsi\" test \":\" suite ) * [ \"sinon\" \":\" suite ]",
+        "हिं": "if_stmt : \"अगर\" test \":\" suite ( \"नतोअगर\" test \":\" suite ) * [ \"नतो\" \":\" suite ]"
       }
     },
     "while_stmt : \"while\" test \":\" suite [ \"else\" \":\" suite ]": {
@@ -409,10 +415,14 @@
       "பெயர்ப்பு": {}
     },
     "?or_test : and_test ( \"or\" and_test ) *": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {
+        "汉语": "?or_test : and_test ( \"或\" and_test ) *"
+      }
     },
     "?and_test : not_test ( \"and\" not_test ) *": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {
+        "汉语": "?and_test : not_test ( \"和\" not_test ) *"
+      }
     },
     "?not_test : \"not\" not_test | comparison": {
       "பெயர்ப்பு": {
@@ -594,7 +604,8 @@
     "funcdef : \"def\" NAME \"(\" parameters ? \")\" [ \"->\" test ] \":\" suite": {
       "பெயர்ப்பு": {
         "த": "funcdef : \"நிரல்பாகம்\" NAME \"(\" parameters ? \")\" [ \"->\" test ] \":\" suite",
-        "fr": "funcdef : \"déf\" NAME \"(\" parameters ? \")\" [ \"->\" test ] \":\" suite"
+        "fr": "funcdef : \"déf\" NAME \"(\" parameters ? \")\" [ \"->\" test ] \":\" suite",
+        "हिं": "funcdef : \"फलन\" NAME \"(\" parameters ? \")\" [ \"->\" test ] \":\" suite"
       }
     },
     "!parameters : paramvalue ( \",\" paramvalue ) * [ \",\" [ starparams | kwparams ] ] \n          | starparams \n          | kwparams": {
@@ -684,7 +695,8 @@
     "?not_test : \"not\" not_test -> not \n         | comparison": {
       "பெயர்ப்பு": {
         "த": "?not_test : not_test \"இல்லை\" -> not \n         | comparison",
-        "fr": "?not_test : \"pas\" not_test -> not \n         | comparison"
+        "fr": "?not_test : \"pas\" not_test -> not \n         | comparison",
+        "हिं": "?not_test : \"नहीं\" not_test -> not \n         | comparison"
       }
     },
     "?comparison : expr ( _comp_op expr ) *": {
@@ -732,7 +744,9 @@
     "?atom : \"(\" [ yield_expr | testlist_comp ] \")\" -> tuple \n     | \"[\" [ testlist_comp ] \"]\" -> list \n     | \"{\" [ dictorsetmaker ] \"}\" -> dict \n     | NAME -> var \n     | number | string + \n     | \"(\" test \")\" -> par_group \n     | \"...\" -> ellipsis \n     | \"None\" -> const_none \n     | \"True\" -> const_true \n     | \"False\" -> const_false": {
       "பெயர்ப்பு": {
         "த": "?atom : \"(\" [ yield_expr | testlist_comp ] \")\" -> tuple \n     | \"[\" [ testlist_comp ] \"]\" -> list \n     | \"{\" [ dictorsetmaker ] \"}\" -> dict \n     | NAME -> var \n     | number | string + \n     | \"(\" test \")\" -> par_group \n     | \"...\" -> ellipsis \n     | \"ஒன்றுமில்லை\" -> const_none \n     | \"உண்மை\" -> const_true \n     | \"தப்பு\" -> const_false",
-        "fr": "?atom : \"(\" [ yield_expr | testlist_comp ] \")\" -> tuple \n     | \"[\" [ testlist_comp ] \"]\" -> list \n     | \"{\" [ dictorsetmaker ] \"}\" -> dict \n     | NAME -> var \n     | number | string + \n     | \"(\" test \")\" -> par_group \n     | \"...\" -> ellipsis \n     | \"Nulle\" -> const_none \n     | \"Vrai\" -> const_true \n     | \"Faux\" -> const_false"
+        "fr": "?atom : \"(\" [ yield_expr | testlist_comp ] \")\" -> tuple \n     | \"[\" [ testlist_comp ] \"]\" -> list \n     | \"{\" [ dictorsetmaker ] \"}\" -> dict \n     | NAME -> var \n     | number | string + \n     | \"(\" test \")\" -> par_group \n     | \"...\" -> ellipsis \n     | \"Nulle\" -> const_none \n     | \"Vrai\" -> const_true \n     | \"Faux\" -> const_false",
+        "हिं": "?atom : \"(\" [ yield_expr | testlist_comp ] \")\" -> tuple \n     | \"[\" [ testlist_comp ] \"]\" -> list \n     | \"{\" [ dictorsetmaker ] \"}\" -> dict \n     | NAME -> var \n     | number | string + \n     | \"(\" test \")\" -> par_group \n     | \"...\" -> ellipsis \n     | \"रिक्त\" -> const_none \n     | \"सही\" -> const_true \n     | \"ग़लत\" -> const_false",
+        "汉语": "?atom : \"(\" [ yield_expr | testlist_comp ] \")\" -> tuple \n     | \"[\" [ testlist_comp ] \"]\" -> list \n     | \"{\" [ dictorsetmaker ] \"}\" -> dict \n     | NAME -> var \n     | number | string + \n     | \"(\" test \")\" -> par_group \n     | \"...\" -> ellipsis \n     | \"空\" -> const_none \n     | \"真\" -> const_true \n     | \"假\" -> const_false"
       }
     },
     "!?testlist_comp : ( test | star_expr ) [ comp_for | ( \",\" ( test | star_expr ) ) + [ \",\" ] | \",\" ]": {
@@ -756,7 +770,8 @@
     "classdef : \"class\" NAME [ \"(\" [ arguments ] \")\" ] \":\" suite": {
       "பெயர்ப்பு": {
         "த": "classdef : \"தொகுப்பு\" NAME [ \"(\" [ arguments ] \")\" ] \":\" suite",
-        "fr": "classdef : \"classe\" NAME [ \"(\" [ arguments ] \")\" ] \":\" suite"
+        "fr": "classdef : \"classe\" NAME [ \"(\" [ arguments ] \")\" ] \":\" suite",
+        "हिं": "classdef : \"वर्ग\" NAME [ \"(\" [ arguments ] \")\" ] \":\" suite"
       }
     },
     "!arguments : argvalue ( \",\" argvalue ) * [ \",\" [ starargs | kwargs ] ] \n         | starargs \n         | kwargs \n         | test comp_for": {
@@ -795,7 +810,7 @@
     "NEWLINE : ( /\\r?\\n[\\t ]*/ | COMMENT ) +": {
       "பெயர்ப்பு": {}
     },
-    "LONG_STRING : /[ubf]?r?(\"\"\".*?(?<!\\\\)(\\\\\\\\)*?\"\"\"|'''.*?(?<!\\\\)(\\\\\\\\)*?''')/is": {
+    "STRING . 2 : /[ubf]?r?(\"(?!\"\").*?(?<!\\\\)(\\\\\\\\)*?\"|'(?!'').*?(?<!\\\\)(\\\\\\\\)*?')/i": {
       "பெயர்ப்பு": {}
     },
     "HEX_NUMBER . 2 : /0x[\\da-f]*/i": {
@@ -815,12 +830,10 @@
     },
     "%declare INDENT DEDENT": {
       "பெயர்ப்பு": {}
-    },
-    "DEC_NUMBER : /0|[1-9]\\d*/i": {
-      "பெயர்ப்பு": {}
     }
   },
   "மொழிபெயர்ப்பாளர்கள்": [
-    "ம. ஜூலீஎன் (julien.malard@mail.mcgill.ca)"
+    "ம. ஜூலீஎன் (julien.malard@mail.mcgill.ca)",
+    "Fred Lin மற்றும் zhpy பங்களிப்பாளர்கள் (https://github.com/gasolin/zhpy; MIT உரிமம்)"
   ]
 }
