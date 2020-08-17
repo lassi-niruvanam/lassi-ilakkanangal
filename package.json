@@ -1,6 +1,6 @@
 {
   "name": "lassi-ilakkanankal",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "லஸ்ஸி மென்பொருளுக்காக இலக்கணங்கள்.",
   "main": "மூலம்/லஸ்ஸியிலக்கணங்கள்/வாடிக்கையாளர்.js",
   "scripts": {
