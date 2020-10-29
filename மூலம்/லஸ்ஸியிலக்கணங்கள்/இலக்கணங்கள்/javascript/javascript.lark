@@ -58,7 +58,7 @@ variable_declaration : IDENTIFIER initialiser?
 
 initialiser : ASSIGN single_expression
 
-empty_statement : SEMICOLON
+empty_statement : EOS
 
 expression_statement: expression_sequence
 
@@ -66,8 +66,8 @@ if_statement: "if" OPEN_PAREN expression_sequence CLOSE_PAREN statement ( "else"
 
 iteration_statement: "do" statement "while" OPEN_PAREN expression_sequence CLOSE_PAREN -> do_statement
     | "while" OPEN_PAREN expression_sequence CLOSE_PAREN statement                                                        -> while_statement
-    | "for" OPEN_PAREN expression_sequence? SEMICOLON expression_sequence? SEMICOLON expression_sequence? CLOSE_PAREN statement         -> for_statement
-    | "for" OPEN_PAREN "var" variable_declaration_list SEMICOLON expression_sequence? SEMICOLON expression_sequence? CLOSE_PAREN statement -> for_var_statement
+    | "for" OPEN_PAREN expression_sequence? EOS expression_sequence? EOS expression_sequence? CLOSE_PAREN statement         -> for_statement
+    | "for" OPEN_PAREN "var" variable_declaration_list EOS expression_sequence? EOS expression_sequence? CLOSE_PAREN statement -> for_var_statement
     | "for" OPEN_PAREN single_expression "in" expression_sequence CLOSE_PAREN statement                                      -> for_in_statement
     | "for" OPEN_PAREN "var" variable_declaration "in" expression_sequence CLOSE_PAREN statement                               -> for_var_in_statement
 
@@ -138,10 +138,12 @@ argument_list: single_expression ( COMMA single_expression )*
 
 expression_sequence : single_expression ( COMMA single_expression )*
 
+identifier_expression : IDENTIFIER
+
 single_expression : function_declaration
     | class_declaration
     | single_expression OPEN_BRACKET expression_sequence CLOSE_BRACKET -> member_index_expression
-    | single_expression DOT IDENTIFIER -> member_dot_expression
+    | single_expression DOT identifier_expression -> member_dot_expression
     | single_expression arguments -> arguments_expression
     | "new" single_expression arguments? -> new_expression
     | single_expression PLUS_PLUS -> post_increment_expression
@@ -171,7 +173,7 @@ single_expression : function_declaration
     | single_expression ASSIGN expression_sequence -> assignment_expression
     | single_expression assignment_operator expression_sequence -> assignment_operator_expression
     | "this" -> this_expression
-    | IDENTIFIER -> identifier_expression
+    | identifier_expression
     | literal -> literal_expression
     | array_literal -> array_literal_expression
     | object_literal -> object_literal_expression
@@ -251,9 +253,11 @@ OCT_NUMBER: /0o[0-7]*/i
 BIN_NUMBER : /0b[0-1]*/i
 FLOAT_NUMBER: /((\d+\.\d*|\.\d+)(e[-+]?\d+)?|\d+(e[-+]?\d+))/i
 STRING : /("(?!"").*?(?<!\\)(\\\\)*?"|'(?!'').*?(?<!\\)(\\\\)*?')/i
+NEWLINE: ( /\r?\n[\t ]*/ )+
+EOS: (NEWLINE+ | SEMICOLON)
 
 IDENTIFIER: NAME
 NAME: /[a-zA-Z_]\w*/
 
-%ignore /[\r\n\u2028\u2029]/  // LINETERMINATOR
+%ignore /[\r\u2028\u2029]/  // LINETERMINATOR
 %ignore /[\t \f]+/  // WS
