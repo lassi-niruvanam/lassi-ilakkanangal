@@ -3,11 +3,11 @@ import os
 from warnings import warn
 
 import semantic_version
-from lark import Lark, Tree
-from lark.reconstruct import Reconstructor
+from nuchabäl import chijun
 from எண்ணிக்கை import சுருங்குறித்தொடர் as சு, உரைக்கு as உ, முறைமைகள்
 
-from nuchabäl import chijun
+from lark import Lark, Tree
+from lark.reconstruct import Reconstructor
 
 
 class நிரல்மொழித்தகவல்கள்(object):
@@ -134,6 +134,27 @@ class நிரல்மொழித்தகவல்கள்(object):
             return next(str(ப) for ப in பதிப்புகள்[::-1] if semantic_version.SimpleSpec(f'<={_பதிப்பு}').match(ப))
         except StopIteration:
             return str(பதிப்புகள்[-1])
+
+    def நீட்சி_மூலம்_மொழி(தன், கோப்பு):
+        பெயர், நீட்சி = கோப்பு.split('.')
+        print(கோப்பு)
+        try:
+            பெயர், மொழி_நீட்சி = பெயர்.split('.')
+            raise NotImplementedError
+        except ValueError:
+            மொழி_நீட்சி = None
+        நிரல்மொழி = next((நிரல் for நிரல், மதி in தன்._தகவல்கள்.items() if மதி['நீட்சி'] == நீட்சி), None)
+        if நிரல்மொழி:
+            return பெயர், நிரல்மொழி, [தன்.தகவல்(நிரல்மொழி, 'மொழி')]
+        try:
+            நிரல்மொழி = next(
+                நிரல் for நிரல், மதி in தன்._மொழிபெயர்ப்புகள்.items() for மொ, நீ in மதி["நீட்சி"].items() if
+                நீ == நீட்சி
+            )
+            மொழி = [மொ for மொ, நீ in தன்._மொழிபெயர்ப்புகள்[நிரல்மொழி]['நீட்சி'].items() if நீ == நீட்சி]
+            return பெயர், நிரல்மொழி, மொழி
+        except StopIteration:
+            pass
 
     def எண்ணுரு_பெறு(தன், நிரல்மொழி, மொழி, எண்ணுரு, பதிப்பு=None):
         if எண்ணுரு in முறைமைகள்:

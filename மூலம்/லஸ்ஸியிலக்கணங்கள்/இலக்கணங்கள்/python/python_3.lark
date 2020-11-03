@@ -129,8 +129,8 @@ star_expr: "*" expr
 
 !?testlist_comp: (test|star_expr) [comp_for | ("," (test|star_expr))+ [","] | ","]
 !subscriptlist: subscript ("," subscript)* [","]
-subscript: test | [test] ":" [test] [sliceop]
-sliceop: ":" [test]
+!subscript: test | [test] ":" [test] [sliceop]
+!sliceop: ":" [test]
 !exprlist: (expr|star_expr) ("," (expr|star_expr))* [","]
 !testlist: test ("," test)* [","]
 !dictorsetmaker: ( ((test ":" test | "**" expr) (comp_for | ("," (test ":" test | "**" expr))* [","])) | ((test | star_expr) (comp_for | ("," (test | star_expr))* [","])) )

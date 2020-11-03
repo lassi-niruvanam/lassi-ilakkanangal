@@ -6,829 +6,448 @@
     "த": "பைத்தான்"
   },
   "பதிப்புகள்": {
-    "2.0.0": [
-      "single_input : _NEWLINE | simple_stmt | compound_stmt _NEWLINE",
-      "?file_input : ( _NEWLINE | stmt ) *",
-      "eval_input : testlist _NEWLINE ?",
-      "decorator : \"@\" dotted_name [ \"(\" [ arglist ] \")\" ] _NEWLINE",
-      "decorators : decorator +",
-      "decorated : decorators ( classdef | funcdef )",
-      "funcdef : \"def\" NAME \"(\" parameters \")\" \":\" suite",
-      "parameters : [ paramlist ]",
-      "paramlist : param ( \",\" param ) * [ \",\" [ star_params [ \",\" kw_params ] | kw_params ] ] \n           | star_params [ \",\" kw_params ] \n           | kw_params",
-      "star_params : \"*\" NAME",
-      "kw_params : \"**\" NAME",
-      "param : fpdef [ \"=\" test ]",
-      "fpdef : NAME | \"(\" fplist \")\"",
-      "fplist : fpdef ( \",\" fpdef ) * [ \",\" ]",
-      "?stmt : simple_stmt | compound_stmt",
-      "?simple_stmt : small_stmt ( \";\" small_stmt ) * [ \";\" ] _NEWLINE",
-      "?small_stmt : ( expr_stmt | print_stmt | del_stmt | pass_stmt | flow_stmt \n          | import_stmt | global_stmt | exec_stmt | assert_stmt )",
-      "expr_stmt : testlist augassign ( yield_expr | testlist ) -> augassign2 \n         | testlist ( \"=\" ( yield_expr | testlist ) ) + -> assign \n         | testlist",
-      "augassign : ( \"+=\" | \"-=\" | \"*=\" | \"/=\" | \"%=\" | \"&=\" | \"|=\" | \"^=\" | \"<<=\" | \">>=\" | \"**=\" | \"//=\" )",
-      "print_stmt : \"print\" ( [ test ( \",\" test ) * [ \",\" ] ] | \">>\" test [ ( \",\" test ) + [ \",\" ] ] )",
-      "del_stmt : \"del\" exprlist",
-      "pass_stmt : \"pass\"",
-      "?flow_stmt : break_stmt | continue_stmt | return_stmt | raise_stmt | yield_stmt",
-      "break_stmt : \"break\"",
-      "continue_stmt : \"continue\"",
-      "return_stmt : \"return\" [ testlist ]",
-      "yield_stmt : yield_expr",
-      "raise_stmt : \"raise\" [ test [ \",\" test [ \",\" test ] ] ]",
-      "import_stmt : import_name | import_from",
-      "import_name : \"import\" dotted_as_names",
-      "import_from : \"from\" ( \".\" * dotted_name | \".\" + ) \"import\" ( \"*\" | \"(\" import_as_names \")\" | import_as_names )",
-      "?import_as_name : NAME [ \"as\" NAME ]",
-      "?dotted_as_name : dotted_name [ \"as\" NAME ]",
-      "import_as_names : import_as_name ( \",\" import_as_name ) * [ \",\" ]",
-      "dotted_as_names : dotted_as_name ( \",\" dotted_as_name ) *",
-      "dotted_name : NAME ( \".\" NAME ) *",
-      "global_stmt : \"global\" NAME ( \",\" NAME ) *",
-      "exec_stmt : \"exec\" expr [ \"in\" test [ \",\" test ] ]",
-      "assert_stmt : \"assert\" test [ \",\" test ]",
-      "?compound_stmt : if_stmt | while_stmt | for_stmt | try_stmt | with_stmt | funcdef | classdef | decorated",
-      "if_stmt : \"if\" test \":\" suite ( \"elif\" test \":\" suite ) * [ \"else\" \":\" suite ]",
-      "while_stmt : \"while\" test \":\" suite [ \"else\" \":\" suite ]",
-      "for_stmt : \"for\" exprlist \"in\" testlist \":\" suite [ \"else\" \":\" suite ]",
-      "try_stmt : ( \"try\" \":\" suite ( ( except_clause \":\" suite ) + [ \"else\" \":\" suite ] [ \"finally\" \":\" suite ] | \"finally\" \":\" suite ) )",
-      "with_stmt : \"with\" with_item ( \",\" with_item ) * \":\" suite",
-      "with_item : test [ \"as\" expr ]",
-      "except_clause : \"except\" [ test [ ( \"as\" | \",\" ) test ] ]",
-      "suite : simple_stmt | _NEWLINE _INDENT _NEWLINE ? stmt + _DEDENT _NEWLINE ?",
-      "testlist_safe : old_test [ ( \",\" old_test ) + [ \",\" ] ]",
-      "old_test : or_test | old_lambdef",
-      "old_lambdef : \"lambda\" [ paramlist ] \":\" old_test",
-      "?test : or_test [ \"if\" or_test \"else\" test ] | lambdef",
-      "?or_test : and_test ( \"or\" and_test ) *",
-      "?and_test : not_test ( \"and\" not_test ) *",
-      "?not_test : \"not\" not_test | comparison",
-      "?comparison : expr ( comp_op expr ) *",
-      "comp_op : \"<\" | \">\" | \"==\" | \">=\" | \"<=\" | \"<>\" | \"!=\" | \"in\" | \"not\" \"in\" | \"is\" | \"is\" \"not\"",
-      "?expr : xor_expr ( \"|\" xor_expr ) *",
-      "?xor_expr : and_expr ( \"^\" and_expr ) *",
-      "?and_expr : shift_expr ( \"&\" shift_expr ) *",
-      "?shift_expr : arith_expr ( ( \"<<\" | \">>\" ) arith_expr ) *",
-      "?arith_expr : term ( ( \"+\" | \"-\" ) term ) *",
-      "?term : factor ( ( \"*\" | \"/\" | \"%\" | \"//\" ) factor ) *",
-      "?factor : ( \"+\" | \"-\" | \"~\" ) factor | power",
-      "?power : molecule [ \"**\" factor ]",
-      "?molecule : molecule \"(\" [ arglist ] \")\" -> func_call \n         | molecule \"[\" [ subscriptlist ] \"]\" -> getitem \n         | molecule \".\" NAME -> getattr \n         | atom",
-      "?atom : \"(\" [ yield_expr | testlist_comp ] \")\" -> tuple \n    | \"[\" [ listmaker ] \"]\" \n    | \"{\" [ dictorsetmaker ] \"}\" \n    | \"`\" testlist1 \"`\" \n    | \"(\" test \")\" \n    | NAME | number | string +",
-      "listmaker : test ( list_for | ( \",\" test ) * [ \",\" ] )",
-      "?testlist_comp : test ( comp_for | ( \",\" test ) + [ \",\" ] | \",\" )",
-      "lambdef : \"lambda\" [ paramlist ] \":\" test",
-      "?subscriptlist : subscript ( \",\" subscript ) * [ \",\" ]",
-      "subscript : \".\" \".\" \".\" | test | [ test ] \":\" [ test ] [ sliceop ]",
-      "sliceop : \":\" [ test ]",
-      "?exprlist : expr ( \",\" expr ) * [ \",\" ]",
-      "?testlist : test ( \",\" test ) * [ \",\" ]",
-      "dictorsetmaker : ( ( test \":\" test ( comp_for | ( \",\" test \":\" test ) * [ \",\" ] ) ) | ( test ( comp_for | ( \",\" test ) * [ \",\" ] ) ) )",
-      "classdef : \"class\" NAME [ \"(\" [ testlist ] \")\" ] \":\" suite",
-      "arglist : ( argument \",\" ) * ( argument [ \",\" ] \n                         | star_args [ \",\" kw_args ] \n                         | kw_args )",
-      "star_args : \"*\" test",
-      "kw_args : \"**\" test",
-      "argument : test [ comp_for ] | test \"=\" test",
-      "list_iter : list_for | list_if",
-      "list_for : \"for\" exprlist \"in\" testlist_safe [ list_iter ]",
-      "list_if : \"if\" old_test [ list_iter ]",
-      "comp_iter : comp_for | comp_if",
-      "comp_for : \"for\" exprlist \"in\" or_test [ comp_iter ]",
-      "comp_if : \"if\" old_test [ comp_iter ]",
-      "testlist1 : test ( \",\" test ) *",
-      "yield_expr : \"yield\" [ testlist ]",
-      "number : DEC_NUMBER | HEX_NUMBER | OCT_NUMBER | FLOAT | IMAG_NUMBER",
-      "string : STRING | LONG_STRING",
-      "COMMENT : /#[^\\n]*/",
-      "_NEWLINE : ( /\\r?\\n[\\t ]*/ | COMMENT ) +",
-      "STRING : /[ubf]?r?(\"(?!\"\").*?(?<!\\\\)(\\\\\\\\)*?\"|'(?!'').*?(?<!\\\\)(\\\\\\\\)*?')/i",
-      "LONG_STRING . 2 : /[ubf]?r?(\"\"\".*?(?<!\\\\)(\\\\\\\\)*?\"\"\"|'''.*?(?<!\\\\)(\\\\\\\\)*?''')/is",
-      "HEX_NUMBER : /0x[\\da-f]*l?/i",
-      "OCT_NUMBER : /0o?[0-7]*l?/i",
-      "%import common . FLOAT -> FLOAT",
-      "%import common . INT -> _INT",
-      "%import common . CNAME -> NAME",
-      "IMAG_NUMBER : ( _INT | FLOAT ) ( \"j\" | \"J\" )",
-      "%ignore /[\\t \\f]+/",
-      "%ignore /\\\\[\\t \\f]*\\r?\\n/",
-      "%ignore COMMENT",
-      "%declare _INDENT _DEDENT"
-    ],
-    "3.0.0": [
-      "single_input : NEWLINE | simple_stmt | compound_stmt NEWLINE",
-      "file_input : ( NEWLINE | stmt ) *",
-      "eval_input : testlist NEWLINE *",
-      "!decorator : \"@\" dotted_name [ \"(\" [ arguments ] \")\" ] NEWLINE",
-      "decorators : decorator +",
-      "decorated : decorators ( classdef | funcdef | async_funcdef )",
-      "async_funcdef : \"async\" funcdef",
-      "funcdef : \"def\" NAME \"(\" parameters ? \")\" [ \"->\" test ] \":\" suite",
-      "!parameters : paramvalue ( \",\" paramvalue ) * [ \",\" [ starparams | kwparams ] ] \n          | starparams \n          | kwparams",
-      "starparams : \"*\" typedparam ? ( \",\" paramvalue ) * [ \",\" kwparams ]",
-      "kwparams : \"**\" typedparam",
-      "?paramvalue : typedparam [ \"=\" test ]",
-      "?typedparam : NAME [ \":\" test ]",
-      "!varargslist : ( vfpdef [ \"=\" test ] ( \",\" vfpdef [ \"=\" test ] ) * [ \",\" [ \"*\" [ vfpdef ] ( \",\" vfpdef [ \"=\" test ] ) * [ \",\" [ \"**\" vfpdef [ \",\" ] ] ] | \"**\" vfpdef [ \",\" ] ] ] \n  | \"*\" [ vfpdef ] ( \",\" vfpdef [ \"=\" test ] ) * [ \",\" [ \"**\" vfpdef [ \",\" ] ] ] \n  | \"**\" vfpdef [ \",\" ] )",
-      "vfpdef : NAME",
-      "?stmt : simple_stmt | compound_stmt",
-      "!?simple_stmt : small_stmt ( \";\" small_stmt ) * [ \";\" ] NEWLINE",
-      "?small_stmt : ( expr_stmt | del_stmt | pass_stmt | flow_stmt | import_stmt | global_stmt | nonlocal_stmt | assert_stmt )",
-      "?expr_stmt : testlist_star_expr ( annassign | augassign ( yield_expr | testlist ) \n         | ( \"=\" ( yield_expr | testlist_star_expr ) ) * )",
-      "annassign : \":\" test [ \"=\" test ]",
-      "!?testlist_star_expr : ( test | star_expr ) ( \",\" ( test | star_expr ) ) * [ \",\" ]",
-      "!augassign : ( \"+=\" | \"-=\" | \"*=\" | \"@=\" | \"/=\" | \"%=\" | \"&=\" | \"|=\" | \"^=\" | \"<<=\" | \">>=\" | \"**=\" | \"//=\" )",
-      "del_stmt : \"del\" exprlist",
-      "pass_stmt : \"pass\"",
-      "flow_stmt : break_stmt | continue_stmt | return_stmt | raise_stmt | yield_stmt",
-      "break_stmt : \"break\"",
-      "continue_stmt : \"continue\"",
-      "return_stmt : \"return\" [ testlist ]",
-      "yield_stmt : yield_expr",
-      "raise_stmt : \"raise\" [ test [ \"from\" test ] ]",
-      "import_stmt : import_name | import_from",
-      "import_name : \"import\" dotted_as_names",
-      "import_from : \"from\" ( dots ? dotted_name | dots ) \"import\" ( \"*\" | \"(\" import_as_names \")\" | import_as_names )",
-      "!dots : \".\" +",
-      "import_as_name : NAME [ \"as\" NAME ]",
-      "dotted_as_name : dotted_name [ \"as\" NAME ]",
-      "!import_as_names : import_as_name ( \",\" import_as_name ) * [ \",\" ]",
-      "dotted_as_names : dotted_as_name ( \",\" dotted_as_name ) *",
-      "dotted_name : NAME ( \".\" NAME ) *",
-      "global_stmt : \"global\" NAME ( \",\" NAME ) *",
-      "nonlocal_stmt : \"nonlocal\" NAME ( \",\" NAME ) *",
-      "assert_stmt : \"assert\" test [ \",\" test ]",
-      "compound_stmt : if_stmt | while_stmt | for_stmt | try_stmt | with_stmt | funcdef | classdef | decorated | async_stmt",
-      "async_stmt : \"async\" ( funcdef | with_stmt | for_stmt )",
-      "if_stmt : \"if\" test \":\" suite ( \"elif\" test \":\" suite ) * [ \"else\" \":\" suite ]",
-      "while_stmt : \"while\" test \":\" suite [ \"else\" \":\" suite ]",
-      "for_stmt : \"for\" exprlist \"in\" testlist \":\" suite [ \"else\" \":\" suite ]",
-      "try_stmt : ( \"try\" \":\" suite ( ( except_clause \":\" suite ) + [ \"else\" \":\" suite ] [ \"finally\" \":\" suite ] | \"finally\" \":\" suite ) )",
-      "with_stmt : \"with\" with_item ( \",\" with_item ) * \":\" suite",
-      "with_item : test [ \"as\" expr ]",
-      "except_clause : \"except\" [ test [ \"as\" NAME ] ]",
-      "suite : simple_stmt | NEWLINE INDENT stmt + DEDENT",
-      "?test : or_test [ \"if\" or_test \"else\" test ] | lambdef",
-      "?test_nocond : or_test | lambdef_nocond",
-      "lambdef : \"lambda\" [ varargslist ] \":\" test",
-      "lambdef_nocond : \"lambda\" [ varargslist ] \":\" test_nocond",
-      "?or_test : and_test ( \"or\" and_test ) *",
-      "?and_test : not_test ( \"and\" not_test ) *",
-      "?not_test : \"not\" not_test -> not \n         | comparison",
-      "?comparison : expr ( _comp_op expr ) *",
-      "star_expr : \"*\" expr",
-      "?expr : xor_expr ( \"|\" xor_expr ) *",
-      "?xor_expr : and_expr ( \"^\" and_expr ) *",
-      "?and_expr : shift_expr ( \"&\" shift_expr ) *",
-      "?shift_expr : arith_expr ( _shift_op arith_expr ) *",
-      "?arith_expr : term ( _add_op term ) *",
-      "?term : factor ( _mul_op factor ) *",
-      "?factor : _factor_op factor | power",
-      "!_factor_op : \"+\" | \"-\" | \"~\"",
-      "!_add_op : \"+\" | \"-\"",
-      "!_shift_op : \"<<\" | \">>\"",
-      "!_mul_op : \"*\" | \"@\" | \"/\" | \"%\" | \"//\"",
-      "!_comp_op : \"<\" | \">\" | \"==\" | \">=\" | \"<=\" | \"<>\" | \"!=\" | \"in\" | \"not\" \"in\" | \"is\" | \"is\" \"not\"",
-      "?power : await_expr [ \"**\" factor ]",
-      "?await_expr : [ \"await\" ] atom_expr",
-      "?atom_expr : atom_expr \"(\" [ arguments ] \")\" -> funccall \n          | atom_expr \"[\" subscriptlist \"]\" -> getitem \n          | atom_expr \".\" NAME -> getattr \n          | atom",
-      "?atom : \"(\" [ yield_expr | testlist_comp ] \")\" -> tuple \n     | \"[\" [ testlist_comp ] \"]\" -> list \n     | \"{\" [ dictorsetmaker ] \"}\" -> dict \n     | NAME -> var \n     | number | string + \n     | \"(\" test \")\" -> par_group \n     | \"...\" -> ellipsis \n     | \"None\" -> const_none \n     | \"True\" -> const_true \n     | \"False\" -> const_false",
-      "!?testlist_comp : ( test | star_expr ) [ comp_for | ( \",\" ( test | star_expr ) ) + [ \",\" ] | \",\" ]",
-      "!subscriptlist : subscript ( \",\" subscript ) * [ \",\" ]",
-      "subscript : test | [ test ] \":\" [ test ] [ sliceop ]",
-      "sliceop : \":\" [ test ]",
-      "!exprlist : ( expr | star_expr ) ( \",\" ( expr | star_expr ) ) * [ \",\" ]",
-      "!testlist : test ( \",\" test ) * [ \",\" ]",
-      "!dictorsetmaker : ( ( ( test \":\" test | \"**\" expr ) ( comp_for | ( \",\" ( test \":\" test | \"**\" expr ) ) * [ \",\" ] ) ) | ( ( test | star_expr ) ( comp_for | ( \",\" ( test | star_expr ) ) * [ \",\" ] ) ) )",
-      "classdef : \"class\" NAME [ \"(\" [ arguments ] \")\" ] \":\" suite",
-      "!arguments : argvalue ( \",\" argvalue ) * [ \",\" [ starargs | kwargs ] ] \n         | starargs \n         | kwargs \n         | test comp_for",
-      "!starargs : \"*\" test ( \",\" \"*\" test ) * ( \",\" argvalue ) * [ \",\" kwargs ]",
-      "kwargs : \"**\" test",
-      "?argvalue : test [ \"=\" test ]",
-      "comp_iter : comp_for | comp_if | async_for",
-      "async_for : \"async\" \"for\" exprlist \"in\" or_test [ comp_iter ]",
-      "comp_for : \"for\" exprlist \"in\" or_test [ comp_iter ]",
-      "comp_if : \"if\" test_nocond [ comp_iter ]",
-      "encoding_decl : NAME",
-      "yield_expr : \"yield\" [ yield_arg ]",
-      "yield_arg : \"from\" test | testlist",
-      "number : DEC_NUMBER | HEX_NUMBER | OCT_NUMBER | FLOAT_NUMBER | IMAG_NUMBER",
-      "string : STRING | LONG_STRING",
-      "COMMENT : /#[^\\n]*/",
-      "NEWLINE : ( /\\r?\\n[\\t ]*/ | COMMENT ) +",
-      "STRING . 2 : /[ubf]?r?(\"(?!\"\").*?(?<!\\\\)(\\\\\\\\)*?\"|'(?!'').*?(?<!\\\\)(\\\\\\\\)*?')/i",
-      "LONG_STRING . 2 : /[ubf]?r?(\"\"\".*?(?<!\\\\)(\\\\\\\\)*?\"\"\"|'''.*?(?<!\\\\)(\\\\\\\\)*?''')/is",
-      "HEX_NUMBER . 2 : /0x[\\da-f]*/i",
-      "OCT_NUMBER . 2 : /0o[0-7]*/i",
-      "BIN_NUMBER . 2 : /0b[0-1]*/i",
-      "FLOAT_NUMBER . 2 : /((\\d+\\.\\d*|\\.\\d+)(e[-+]?\\d+)?|\\d+(e[-+]?\\d+))/i",
-      "IMAG_NUMBER . 2 : /\\d+j|${FLOAT_NUMBER}j/i",
-      "%ignore /[\\t \\f]+/",
-      "%ignore /\\\\[\\t \\f]*\\r?\\n/",
-      "%ignore COMMENT",
-      "%declare INDENT DEDENT"
+    "": [
+      "start : source_elements ?",
+      "source_elements : statement +",
+      "statement : block \n    | variable_statement \n    | empty_statement \n    | expression_statement \n    | if_statement \n    | iteration_statement \n    | continue_statement \n    | break_statement \n    | return_statement \n    | with_statement \n    | labelled_statement \n    | switch_statement \n    | throw_statement \n    | try_statement \n    | debugger_statement",
+      "block : OPEN_BRACE statement_list ? CLOSE_BRACE",
+      "statement_list : statement +",
+      "variable_statement : \"var\" variable_declaration_list",
+      "variable_declaration_list : variable_declaration ( COMMA variable_declaration ) *",
+      "variable_declaration : IDENTIFIER initialiser ?",
+      "initialiser : ASSIGN single_expression",
+      "empty_statement : EOS",
+      "expression_statement : expression_sequence",
+      "if_statement : \"if\" OPEN_PAREN expression_sequence CLOSE_PAREN statement ( \"else\" statement ) ?",
+      "iteration_statement : \"do\" statement \"while\" OPEN_PAREN expression_sequence CLOSE_PAREN -> do_statement \n    | \"while\" OPEN_PAREN expression_sequence CLOSE_PAREN statement -> while_statement \n    | \"for\" OPEN_PAREN expression_sequence ? EOS expression_sequence ? EOS expression_sequence ? CLOSE_PAREN statement -> for_statement \n    | \"for\" OPEN_PAREN \"var\" variable_declaration_list EOS expression_sequence ? EOS expression_sequence ? CLOSE_PAREN statement -> for_var_statement \n    | \"for\" OPEN_PAREN single_expression \"in\" expression_sequence CLOSE_PAREN statement -> for_in_statement \n    | \"for\" OPEN_PAREN \"var\" variable_declaration \"in\" expression_sequence CLOSE_PAREN statement -> for_var_in_statement",
+      "continue_statement : \"continue\" IDENTIFIER ?",
+      "break_statement : \"break\" IDENTIFIER ?",
+      "return_statement : \"return\" ( expression_sequence ) ?",
+      "with_statement : \"with\" OPEN_PAREN expression_sequence CLOSE_PAREN statement",
+      "switch_statement : \"switch\" OPEN_PAREN expression_sequence CLOSE_PAREN case_block",
+      "case_block : OPEN_BRACE case_clauses ? ( default_clause case_clauses ? ) ? CLOSE_BRACE",
+      "case_clauses : case_clause +",
+      "case_clause : \"case\" expression_sequence COLON statement_list ?",
+      "default_clause : \"default\" COLON statement_list ?",
+      "labelled_statement : IDENTIFIER COLON statement",
+      "throw_statement : \"throw\" expression_sequence",
+      "try_statement : \"try\" block ( catch_production | finally_production | ( catch_production finally_production ) )",
+      "catch_production : \"catch\" OPEN_PAREN IDENTIFIER CLOSE_PAREN block",
+      "finally_production : \"finally\" block",
+      "debugger_statement : \"debugger\"",
+      "function_declaration : \"function\" IDENTIFIER OPEN_PAREN formal_parameter_list ? CLOSE_PAREN OPEN_BRACE function_body CLOSE_BRACE",
+      "formal_parameter_list : IDENTIFIER ( COMMA IDENTIFIER ) *",
+      "function_body : source_elements ?",
+      "class_declaration : \"class\" IDENTIFIER OPEN_BRACE class_body CLOSE_BRACE",
+      "class_body : ( method_declaration | property_assignment ) *",
+      "method_declaration : IDENTIFIER OPEN_PAREN formal_parameter_list ? CLOSE_PAREN OPEN_BRACE function_body CLOSE_BRACE",
+      "array_literal : OPEN_BRACKET element_list ? COMMA ? elision ? CLOSE_BRACKET",
+      "element_list : elision ? single_expression ( COMMA elision ? single_expression ) *",
+      "elision : COMMA +",
+      "object_literal : OPEN_BRACE CLOSE_BRACE \n    | OPEN_BRACE property_name_and_value_list COMMA ? CLOSE_BRACE",
+      "property_name_and_value_list : property_assignment ( COMMA property_assignment ) *",
+      "property_assignment : property_name COLON single_expression -> property_expression_assignment \n    | \"get\" property_name OPEN_PAREN CLOSE_PAREN OPEN_BRACE function_body CLOSE_BRACE -> property_getter \n    | \"set\" property_name OPEN_PAREN property_set_parameter_list CLOSE_PAREN OPEN_BRACE function_body CLOSE_BRACE -> property_setter",
+      "property_name : IDENTIFIER | STRING | numeric_literal",
+      "property_set_parameter_list : IDENTIFIER",
+      "arguments : OPEN_PAREN argument_list ? CLOSE_PAREN",
+      "argument_list : single_expression ( COMMA single_expression ) *",
+      "expression_sequence : single_expression ( COMMA single_expression ) *",
+      "identifier_expression : IDENTIFIER",
+      "single_expression : function_declaration \n    | class_declaration \n    | single_expression OPEN_BRACKET expression_sequence CLOSE_BRACKET -> member_index_expression \n    | single_expression DOT identifier_expression -> member_dot_expression \n    | single_expression arguments -> arguments_expression \n    | \"new\" single_expression arguments ? -> new_expression \n    | single_expression PLUS_PLUS -> post_increment_expression \n    | single_expression MINUS_MINUS -> post_decrease_expression \n    | \"delete\" single_expression -> delete_expression \n    | \"void\" single_expression -> void_expression \n    | \"typeof\" single_expression -> typeof_expression \n    | PLUS_PLUS single_expression -> pre_increment_expression \n    | MINUS_MINUS single_expression -> pre_decrease_expression \n    | PLUS single_expression -> unary_plus_expression \n    | MINUS single_expression -> unary_minus_expression \n    | BIT_NOT single_expression -> bit_not_expression \n    | NOT single_expression -> not_expression \n    | single_expression ( MULTIPLY | DIVIDE | MODULUS ) single_expression -> multiplicative_expression \n    | single_expression ( PLUS | MINUS ) single_expression -> additive_expression \n    | single_expression ( LEFT_SHIFT_ARITHMETIC | RIGHT_SHIFT_ARITHMETIC | RIGHT_SHIFT_LOGICAL ) single_expression -> bit_shift_expression \n    | single_expression ( LESS_THAN | GREATER_THAN | LESS_THAN_EQUALS | GREATER_THAN_EQUALS ) single_expression -> relational_expression \n    | single_expression \"instanceof\" single_expression -> instanceof_expression \n    | single_expression \"in\" single_expression -> in_expression \n    | single_expression ( EQUALS | NOT_EQUALS | IDENTITY_EQUALS | IDENTIFY_NOT_EQUALS ) single_expression -> equality_expression \n    | single_expression BIT_AND single_expression -> bit_and_expression \n    | single_expression BIT_XOR single_expression -> bit_xor_expression \n    | single_expression BIT_OR single_expression -> bit_or_expression \n    | single_expression AND single_expression -> logical_and_expression \n    | single_expression OR single_expression -> logical_or_expression \n    | single_expression QUESTIONMARK single_expression COLON single_expression -> ternary_expression \n    | single_expression ASSIGN expression_sequence -> assignment_expression \n    | single_expression assignment_operator expression_sequence -> assignment_operator_expression \n    | \"this\" -> this_expression \n    | identifier_expression \n    | literal -> literal_expression \n    | array_literal -> array_literal_expression \n    | object_literal -> object_literal_expression \n    | \"(\" expression_sequence \")\" -> parenthesized_expression",
+      "assignment_operator : MULTIPLY_ASSIGN \n    | DIVIDE_ASSIGN \n    | MODULUS_ASSIGN \n    | PLUS_ASSIGN \n    | MINUS_ASSIGN \n    | LEFT_SHIFT_ARITHMETIC_ASSIGN \n    | RIGHT_SHIFT_ARITHMETIC_ASSIGN \n    | RIGHT_SHIFT_LOGICAL_ASSIGN \n    | BIT_AND_ASSIGN \n    | BIT_XOR_ASSIGN \n    | BIT_OR_ASSIGN",
+      "literal : NULL_LITERAL | BOOLEAN_LITERAL | STRING | numeric_literal",
+      "numeric_literal : DEC_NUMBER | HEX_NUMBER | OCT_NUMBER | FLOAT_NUMBER",
+      "OPEN_BRACKET : \"[\"",
+      "CLOSE_BRACKET : \"]\"",
+      "OPEN_PAREN : \"(\"",
+      "CLOSE_PAREN : \")\"",
+      "OPEN_BRACE : \"{\"",
+      "CLOSE_BRACE : \"}\"",
+      "SEMICOLON : \";\"",
+      "COMMA : \",\"",
+      "ASSIGN : \"=\"",
+      "QUESTIONMARK : \"?\"",
+      "COLON : \":\"",
+      "DOT : \".\"",
+      "PLUS_PLUS : \"++\"",
+      "MINUS_MINUS : \"--\"",
+      "PLUS : \"+\"",
+      "MINUS : \"-\"",
+      "BIT_NOT : \"~\"",
+      "NOT : \"!\"",
+      "MULTIPLY : \"*\"",
+      "DIVIDE : \"/\"",
+      "MODULUS : \"%\"",
+      "RIGHT_SHIFT_ARITHMETIC : \">>\"",
+      "LEFT_SHIFT_ARITHMETIC : \"<<\"",
+      "RIGHT_SHIFT_LOGICAL : \">>>\"",
+      "LESS_THAN : \"<\"",
+      "GREATER_THAN : \">\"",
+      "LESS_THAN_EQUALS : \"<=\"",
+      "GREATER_THAN_EQUALS : \">=\"",
+      "EQUALS : \"==\"",
+      "NOT_EQUALS : \"!=\"",
+      "IDENTITY_EQUALS : \"===\"",
+      "IDENTIFY_NOT_EQUALS : \"!==\"",
+      "BIT_AND : \"&\"",
+      "BIT_XOR : \"^\"",
+      "BIT_OR : \"|\"",
+      "AND : \"&&\"",
+      "OR : \"||\"",
+      "MULTIPLY_ASSIGN : \"*=\"",
+      "DIVIDE_ASSIGN : \"/=\"",
+      "MODULUS_ASSIGN : \"%=\"",
+      "PLUS_ASSIGN : \"+=\"",
+      "MINUS_ASSIGN : \"-=\"",
+      "LEFT_SHIFT_ARITHMETIC_ASSIGN : \"<<=\"",
+      "RIGHT_SHIFT_ARITHMETIC_ASSIGN : \">>=\"",
+      "RIGHT_SHIFT_LOGICAL_ASSIGN : \">>>=\"",
+      "BIT_AND_ASSIGN : \"&=\"",
+      "BIT_XOR_ASSIGN : \"^=\"",
+      "BIT_OR_ASSIGN : \"|=\"",
+      "NULL_LITERAL : \"null\"",
+      "BOOLEAN_LITERAL : \"true\" | \"false\"",
+      "HEX_NUMBER : /0x[\\da-f]*/i",
+      "OCT_NUMBER : /0o[0-7]*/i",
+      "BIN_NUMBER : /0b[0-1]*/i",
+      "FLOAT_NUMBER : /((\\d+\\.\\d*|\\.\\d+)(e[-+]?\\d+)?|\\d+(e[-+]?\\d+))/i",
+      "STRING : /(\"(?!\"\").*?(?<!\\\\)(\\\\\\\\)*?\"|'(?!'').*?(?<!\\\\)(\\\\\\\\)*?')/i",
+      "NEWLINE : ( /\\r?\\n[\\t ]*/ ) +",
+      "EOS : ( NEWLINE + | SEMICOLON )",
+      "IDENTIFIER : NAME",
+      "%ignore /[\\r\\u2028\\u2029]/",
+      "%ignore /[\\t \\f]+/"
     ]
   },
   "விதிகள்": {
-    "single_input : _NEWLINE | simple_stmt | compound_stmt _NEWLINE": {
+    "start : source_elements ?": {
       "பெயர்ப்பு": {}
     },
-    "?file_input : ( _NEWLINE | stmt ) *": {
+    "source_elements : statement +": {
       "பெயர்ப்பு": {}
     },
-    "eval_input : testlist _NEWLINE ?": {
+    "statement : block \n    | variable_statement \n    | empty_statement \n    | expression_statement \n    | if_statement \n    | iteration_statement \n    | continue_statement \n    | break_statement \n    | return_statement \n    | with_statement \n    | labelled_statement \n    | switch_statement \n    | throw_statement \n    | try_statement \n    | debugger_statement": {
       "பெயர்ப்பு": {}
     },
-    "decorator : \"@\" dotted_name [ \"(\" [ arglist ] \")\" ] _NEWLINE": {
+    "block : OPEN_BRACE statement_list ? CLOSE_BRACE": {
       "பெயர்ப்பு": {}
     },
-    "decorators : decorator +": {
+    "statement_list : statement +": {
       "பெயர்ப்பு": {}
     },
-    "decorated : decorators ( classdef | funcdef )": {
+    "variable_statement : \"var\" variable_declaration_list": {
       "பெயர்ப்பு": {}
     },
-    "funcdef : \"def\" NAME \"(\" parameters \")\" \":\" suite": {
+    "variable_declaration_list : variable_declaration ( COMMA variable_declaration ) *": {
       "பெயர்ப்பு": {}
     },
-    "parameters : [ paramlist ]": {
+    "variable_declaration : IDENTIFIER initialiser ?": {
       "பெயர்ப்பு": {}
     },
-    "paramlist : param ( \",\" param ) * [ \",\" [ star_params [ \",\" kw_params ] | kw_params ] ] \n           | star_params [ \",\" kw_params ] \n           | kw_params": {
+    "initialiser : ASSIGN single_expression": {
       "பெயர்ப்பு": {}
     },
-    "star_params : \"*\" NAME": {
+    "empty_statement : EOS": {
       "பெயர்ப்பு": {}
     },
-    "kw_params : \"**\" NAME": {
+    "expression_statement : expression_sequence": {
       "பெயர்ப்பு": {}
     },
-    "param : fpdef [ \"=\" test ]": {
+    "if_statement : \"if\" OPEN_PAREN expression_sequence CLOSE_PAREN statement ( \"else\" statement ) ?": {
       "பெயர்ப்பு": {}
     },
-    "fpdef : NAME | \"(\" fplist \")\"": {
+    "iteration_statement : \"do\" statement \"while\" OPEN_PAREN expression_sequence CLOSE_PAREN -> do_statement \n    | \"while\" OPEN_PAREN expression_sequence CLOSE_PAREN statement -> while_statement \n    | \"for\" OPEN_PAREN expression_sequence ? EOS expression_sequence ? EOS expression_sequence ? CLOSE_PAREN statement -> for_statement \n    | \"for\" OPEN_PAREN \"var\" variable_declaration_list EOS expression_sequence ? EOS expression_sequence ? CLOSE_PAREN statement -> for_var_statement \n    | \"for\" OPEN_PAREN single_expression \"in\" expression_sequence CLOSE_PAREN statement -> for_in_statement \n    | \"for\" OPEN_PAREN \"var\" variable_declaration \"in\" expression_sequence CLOSE_PAREN statement -> for_var_in_statement": {
       "பெயர்ப்பு": {}
     },
-    "fplist : fpdef ( \",\" fpdef ) * [ \",\" ]": {
+    "continue_statement : \"continue\" IDENTIFIER ?": {
       "பெயர்ப்பு": {}
     },
-    "?stmt : simple_stmt | compound_stmt": {
+    "break_statement : \"break\" IDENTIFIER ?": {
       "பெயர்ப்பு": {}
     },
-    "?simple_stmt : small_stmt ( \";\" small_stmt ) * [ \";\" ] _NEWLINE": {
+    "return_statement : \"return\" ( expression_sequence ) ?": {
       "பெயர்ப்பு": {}
     },
-    "?small_stmt : ( expr_stmt | print_stmt | del_stmt | pass_stmt | flow_stmt \n          | import_stmt | global_stmt | exec_stmt | assert_stmt )": {
+    "with_statement : \"with\" OPEN_PAREN expression_sequence CLOSE_PAREN statement": {
       "பெயர்ப்பு": {}
     },
-    "expr_stmt : testlist augassign ( yield_expr | testlist ) -> augassign2 \n         | testlist ( \"=\" ( yield_expr | testlist ) ) + -> assign \n         | testlist": {
+    "switch_statement : \"switch\" OPEN_PAREN expression_sequence CLOSE_PAREN case_block": {
       "பெயர்ப்பு": {}
     },
-    "augassign : ( \"+=\" | \"-=\" | \"*=\" | \"/=\" | \"%=\" | \"&=\" | \"|=\" | \"^=\" | \"<<=\" | \">>=\" | \"**=\" | \"//=\" )": {
+    "case_block : OPEN_BRACE case_clauses ? ( default_clause case_clauses ? ) ? CLOSE_BRACE": {
       "பெயர்ப்பு": {}
     },
-    "print_stmt : \"print\" ( [ test ( \",\" test ) * [ \",\" ] ] | \">>\" test [ ( \",\" test ) + [ \",\" ] ] )": {
-      "பெயர்ப்பு": {
-        "த": "print_stmt : \"பதிப்பி\" ( [ test ( \",\" test ) * [ \",\" ] ] | \">>\" test [ ( \",\" test ) + [ \",\" ] ] )",
-        "fr": "print_stmt : \"afficher\" ( [ test ( \",\" test ) * [ \",\" ] ] | \">>\" test [ ( \",\" test ) + [ \",\" ] ] )",
-        "हिं": "print_stmt : \"चपाना\" ( [ test ( \",\" test ) * [ \",\" ] ] | \">>\" test [ ( \",\" test ) + [ \",\" ] ] )"
-      }
+    "case_clauses : case_clause +": {
+      "பெயர்ப்பு": {}
+    },
+    "case_clause : \"case\" expression_sequence COLON statement_list ?": {
+      "பெயர்ப்பு": {}
+    },
+    "default_clause : \"default\" COLON statement_list ?": {
+      "பெயர்ப்பு": {}
+    },
+    "labelled_statement : IDENTIFIER COLON statement": {
+      "பெயர்ப்பு": {}
+    },
+    "throw_statement : \"throw\" expression_sequence": {
+      "பெயர்ப்பு": {}
+    },
+    "try_statement : \"try\" block ( catch_production | finally_production | ( catch_production finally_production ) )": {
+      "பெயர்ப்பு": {}
+    },
+    "catch_production : \"catch\" OPEN_PAREN IDENTIFIER CLOSE_PAREN block": {
+      "பெயர்ப்பு": {}
+    },
+    "finally_production : \"finally\" block": {
+      "பெயர்ப்பு": {}
     },
-    "del_stmt : \"del\" exprlist": {
+    "debugger_statement : \"debugger\"": {
       "பெயர்ப்பு": {}
     },
-    "pass_stmt : \"pass\"": {
-      "பெயர்ப்பு": {
-        "த": "pass_stmt : \"விடு\"",
-        "fr": "pass_stmt : \"passer\""
-      }
+    "function_declaration : \"function\" IDENTIFIER OPEN_PAREN formal_parameter_list ? CLOSE_PAREN OPEN_BRACE function_body CLOSE_BRACE": {
+      "பெயர்ப்பு": {}
+    },
+    "formal_parameter_list : IDENTIFIER ( COMMA IDENTIFIER ) *": {
+      "பெயர்ப்பு": {}
     },
-    "?flow_stmt : break_stmt | continue_stmt | return_stmt | raise_stmt | yield_stmt": {
+    "function_body : source_elements ?": {
       "பெயர்ப்பு": {}
     },
-    "break_stmt : \"break\"": {
-      "பெயர்ப்பு": {
-        "हिं": "break_stmt : \"अवरोध\""
-      }
+    "class_declaration : \"class\" IDENTIFIER OPEN_BRACE class_body CLOSE_BRACE": {
+      "பெயர்ப்பு": {}
     },
-    "continue_stmt : \"continue\"": {
+    "class_body : ( method_declaration | property_assignment ) *": {
       "பெயர்ப்பு": {}
     },
-    "return_stmt : \"return\" [ testlist ]": {
-      "பெயர்ப்பு": {
-        "த": "return_stmt : \"பின்கொடு\" [ testlist ]",
-        "fr": "return_stmt : \"renvoie\" [ testlist ]",
-        "हिं": "return_stmt : \"लौटा\" [ testlist ]"
-      }
+    "method_declaration : IDENTIFIER OPEN_PAREN formal_parameter_list ? CLOSE_PAREN OPEN_BRACE function_body CLOSE_BRACE": {
+      "பெயர்ப்பு": {}
     },
-    "yield_stmt : yield_expr": {
+    "array_literal : OPEN_BRACKET element_list ? COMMA ? elision ? CLOSE_BRACKET": {
       "பெயர்ப்பு": {}
     },
-    "raise_stmt : \"raise\" [ test [ \",\" test [ \",\" test ] ] ]": {
+    "element_list : elision ? single_expression ( COMMA elision ? single_expression ) *": {
       "பெயர்ப்பு": {}
     },
-    "import_stmt : import_name | import_from": {
+    "elision : COMMA +": {
       "பெயர்ப்பு": {}
     },
-    "import_name : \"import\" dotted_as_names": {
-      "பெயர்ப்பு": {
-        "த": "import_name : \"உள்ளீடு\" dotted_as_names",
-        "हिं": "import_name : \"आयात\" dotted_as_names"
-      }
+    "object_literal : OPEN_BRACE CLOSE_BRACE \n    | OPEN_BRACE property_name_and_value_list COMMA ? CLOSE_BRACE": {
+      "பெயர்ப்பு": {}
     },
-    "import_from : \"from\" ( \".\" * dotted_name | \".\" + ) \"import\" ( \"*\" | \"(\" import_as_names \")\" | import_as_names )": {
+    "property_name_and_value_list : property_assignment ( COMMA property_assignment ) *": {
       "பெயர்ப்பு": {}
     },
-    "?import_as_name : NAME [ \"as\" NAME ]": {
+    "property_assignment : property_name COLON single_expression -> property_expression_assignment \n    | \"get\" property_name OPEN_PAREN CLOSE_PAREN OPEN_BRACE function_body CLOSE_BRACE -> property_getter \n    | \"set\" property_name OPEN_PAREN property_set_parameter_list CLOSE_PAREN OPEN_BRACE function_body CLOSE_BRACE -> property_setter": {
       "பெயர்ப்பு": {}
     },
-    "?dotted_as_name : dotted_name [ \"as\" NAME ]": {
+    "property_name : IDENTIFIER | STRING | numeric_literal": {
       "பெயர்ப்பு": {}
     },
-    "import_as_names : import_as_name ( \",\" import_as_name ) * [ \",\" ]": {
+    "property_set_parameter_list : IDENTIFIER": {
       "பெயர்ப்பு": {}
     },
-    "dotted_as_names : dotted_as_name ( \",\" dotted_as_name ) *": {
+    "arguments : OPEN_PAREN argument_list ? CLOSE_PAREN": {
       "பெயர்ப்பு": {}
     },
-    "dotted_name : NAME ( \".\" NAME ) *": {
+    "argument_list : single_expression ( COMMA single_expression ) *": {
       "பெயர்ப்பு": {}
     },
-    "global_stmt : \"global\" NAME ( \",\" NAME ) *": {
+    "expression_sequence : single_expression ( COMMA single_expression ) *": {
       "பெயர்ப்பு": {}
     },
-    "exec_stmt : \"exec\" expr [ \"in\" test [ \",\" test ] ]": {
+    "identifier_expression : IDENTIFIER": {
       "பெயர்ப்பு": {}
     },
-    "assert_stmt : \"assert\" test [ \",\" test ]": {
-      "பெயர்ப்பு": {
-        "த": "assert_stmt : \"உறுதி\" test [ \",\" test ]"
-      }
+    "single_expression : function_declaration \n    | class_declaration \n    | single_expression OPEN_BRACKET expression_sequence CLOSE_BRACKET -> member_index_expression \n    | single_expression DOT identifier_expression -> member_dot_expression \n    | single_expression arguments -> arguments_expression \n    | \"new\" single_expression arguments ? -> new_expression \n    | single_expression PLUS_PLUS -> post_increment_expression \n    | single_expression MINUS_MINUS -> post_decrease_expression \n    | \"delete\" single_expression -> delete_expression \n    | \"void\" single_expression -> void_expression \n    | \"typeof\" single_expression -> typeof_expression \n    | PLUS_PLUS single_expression -> pre_increment_expression \n    | MINUS_MINUS single_expression -> pre_decrease_expression \n    | PLUS single_expression -> unary_plus_expression \n    | MINUS single_expression -> unary_minus_expression \n    | BIT_NOT single_expression -> bit_not_expression \n    | NOT single_expression -> not_expression \n    | single_expression ( MULTIPLY | DIVIDE | MODULUS ) single_expression -> multiplicative_expression \n    | single_expression ( PLUS | MINUS ) single_expression -> additive_expression \n    | single_expression ( LEFT_SHIFT_ARITHMETIC | RIGHT_SHIFT_ARITHMETIC | RIGHT_SHIFT_LOGICAL ) single_expression -> bit_shift_expression \n    | single_expression ( LESS_THAN | GREATER_THAN | LESS_THAN_EQUALS | GREATER_THAN_EQUALS ) single_expression -> relational_expression \n    | single_expression \"instanceof\" single_expression -> instanceof_expression \n    | single_expression \"in\" single_expression -> in_expression \n    | single_expression ( EQUALS | NOT_EQUALS | IDENTITY_EQUALS | IDENTIFY_NOT_EQUALS ) single_expression -> equality_expression \n    | single_expression BIT_AND single_expression -> bit_and_expression \n    | single_expression BIT_XOR single_expression -> bit_xor_expression \n    | single_expression BIT_OR single_expression -> bit_or_expression \n    | single_expression AND single_expression -> logical_and_expression \n    | single_expression OR single_expression -> logical_or_expression \n    | single_expression QUESTIONMARK single_expression COLON single_expression -> ternary_expression \n    | single_expression ASSIGN expression_sequence -> assignment_expression \n    | single_expression assignment_operator expression_sequence -> assignment_operator_expression \n    | \"this\" -> this_expression \n    | identifier_expression \n    | literal -> literal_expression \n    | array_literal -> array_literal_expression \n    | object_literal -> object_literal_expression \n    | \"(\" expression_sequence \")\" -> parenthesized_expression": {
+      "பெயர்ப்பு": {}
     },
-    "?compound_stmt : if_stmt | while_stmt | for_stmt | try_stmt | with_stmt | funcdef | classdef | decorated": {
+    "assignment_operator : MULTIPLY_ASSIGN \n    | DIVIDE_ASSIGN \n    | MODULUS_ASSIGN \n    | PLUS_ASSIGN \n    | MINUS_ASSIGN \n    | LEFT_SHIFT_ARITHMETIC_ASSIGN \n    | RIGHT_SHIFT_ARITHMETIC_ASSIGN \n    | RIGHT_SHIFT_LOGICAL_ASSIGN \n    | BIT_AND_ASSIGN \n    | BIT_XOR_ASSIGN \n    | BIT_OR_ASSIGN": {
       "பெயர்ப்பு": {}
     },
-    "if_stmt : \"if\" test \":\" suite ( \"elif\" test \":\" suite ) * [ \"else\" \":\" suite ]": {
-      "பெயர்ப்பு": {
-        "த": "if_stmt : test \"ஆனால்\" \":\" suite ( \"இல்லை\" test \"ஆனால்\" \":\" suite ) * [ \"ஏதேனில்\" \":\" suite ]",
-        "fr": "if_stmt : \"si\" test \":\" suite ( \"sinonsi\" test \":\" suite ) * [ \"sinon\" \":\" suite ]",
-        "हिं": "if_stmt : \"अगर\" test \":\" suite ( \"नतोअगर\" test \":\" suite ) * [ \"नतो\" \":\" suite ]"
-      }
+    "literal : NULL_LITERAL | BOOLEAN_LITERAL | STRING | numeric_literal": {
+      "பெயர்ப்பு": {}
     },
-    "while_stmt : \"while\" test \":\" suite [ \"else\" \":\" suite ]": {
-      "பெயர்ப்பு": {
-        "த": "while_stmt : test \"வரை\" \":\" suite [ \"ஏதேனில்\" \":\" suite ]",
-        "fr": "while_stmt : \"tant\" \"que\" test \":\" suite [ \"sinon\" \":\" suite ]"
-      }
+    "numeric_literal : DEC_NUMBER | HEX_NUMBER | OCT_NUMBER | FLOAT_NUMBER": {
+      "பெயர்ப்பு": {}
     },
-    "for_stmt : \"for\" exprlist \"in\" testlist \":\" suite [ \"else\" \":\" suite ]": {
-      "பெயர்ப்பு": {
-        "த": "for_stmt : \"ஒவ்வொன்றாக\" exprlist testlist \"இல்\" \":\" suite [ \"ஏதேனில்\" \":\" suite ]",
-        "fr": "for_stmt : \"pour\" exprlist \"dans\" testlist \":\" suite [ \"sinon\" \":\" suite ]"
-      }
+    "OPEN_BRACKET : \"[\"": {
+      "பெயர்ப்பு": {}
     },
-    "try_stmt : ( \"try\" \":\" suite ( ( except_clause \":\" suite ) + [ \"else\" \":\" suite ] [ \"finally\" \":\" suite ] | \"finally\" \":\" suite ) )": {
+    "CLOSE_BRACKET : \"]\"": {
       "பெயர்ப்பு": {}
     },
-    "with_stmt : \"with\" with_item ( \",\" with_item ) * \":\" suite": {
-      "பெயர்ப்பு": {
-        "fr": "with_stmt : \"avec\" with_item ( \",\" with_item ) * \":\" suite"
-      }
+    "OPEN_PAREN : \"(\"": {
+      "பெயர்ப்பு": {}
     },
-    "with_item : test [ \"as\" expr ]": {
+    "CLOSE_PAREN : \")\"": {
       "பெயர்ப்பு": {}
     },
-    "except_clause : \"except\" [ test [ ( \"as\" | \",\" ) test ] ]": {
+    "OPEN_BRACE : \"{\"": {
       "பெயர்ப்பு": {}
     },
-    "suite : simple_stmt | _NEWLINE _INDENT _NEWLINE ? stmt + _DEDENT _NEWLINE ?": {
+    "CLOSE_BRACE : \"}\"": {
       "பெயர்ப்பு": {}
     },
-    "testlist_safe : old_test [ ( \",\" old_test ) + [ \",\" ] ]": {
+    "SEMICOLON : \";\"": {
       "பெயர்ப்பு": {}
     },
-    "old_test : or_test | old_lambdef": {
+    "COMMA : \",\"": {
       "பெயர்ப்பு": {}
     },
-    "old_lambdef : \"lambda\" [ paramlist ] \":\" old_test": {
+    "ASSIGN : \"=\"": {
       "பெயர்ப்பு": {}
     },
-    "?test : or_test [ \"if\" or_test \"else\" test ] | lambdef": {
+    "QUESTIONMARK : \"?\"": {
       "பெயர்ப்பு": {}
     },
-    "?or_test : and_test ( \"or\" and_test ) *": {
-      "பெயர்ப்பு": {
-        "汉语": "?or_test : and_test ( \"或\" and_test ) *"
-      }
+    "COLON : \":\"": {
+      "பெயர்ப்பு": {}
     },
-    "?and_test : not_test ( \"and\" not_test ) *": {
-      "பெயர்ப்பு": {
-        "汉语": "?and_test : not_test ( \"和\" not_test ) *"
-      }
+    "DOT : \".\"": {
+      "பெயர்ப்பு": {}
     },
-    "?not_test : \"not\" not_test | comparison": {
-      "பெயர்ப்பு": {
-        "த": "?not_test : not_test \"இல்லை\" | comparison",
-        "fr": "?not_test : \"pas\" not_test | comparison"
-      }
+    "PLUS_PLUS : \"++\"": {
+      "பெயர்ப்பு": {}
     },
-    "?comparison : expr ( comp_op expr ) *": {
+    "MINUS_MINUS : \"--\"": {
       "பெயர்ப்பு": {}
     },
-    "comp_op : \"<\" | \">\" | \"==\" | \">=\" | \"<=\" | \"<>\" | \"!=\" | \"in\" | \"not\" \"in\" | \"is\" | \"is\" \"not\"": {
+    "PLUS : \"+\"": {
       "பெயர்ப்பு": {}
     },
-    "?expr : xor_expr ( \"|\" xor_expr ) *": {
+    "MINUS : \"-\"": {
       "பெயர்ப்பு": {}
     },
-    "?xor_expr : and_expr ( \"^\" and_expr ) *": {
+    "BIT_NOT : \"~\"": {
       "பெயர்ப்பு": {}
     },
-    "?and_expr : shift_expr ( \"&\" shift_expr ) *": {
+    "NOT : \"!\"": {
       "பெயர்ப்பு": {}
     },
-    "?shift_expr : arith_expr ( ( \"<<\" | \">>\" ) arith_expr ) *": {
+    "MULTIPLY : \"*\"": {
       "பெயர்ப்பு": {}
     },
-    "?arith_expr : term ( ( \"+\" | \"-\" ) term ) *": {
+    "DIVIDE : \"/\"": {
       "பெயர்ப்பு": {}
     },
-    "?term : factor ( ( \"*\" | \"/\" | \"%\" | \"//\" ) factor ) *": {
+    "MODULUS : \"%\"": {
       "பெயர்ப்பு": {}
     },
-    "?factor : ( \"+\" | \"-\" | \"~\" ) factor | power": {
+    "RIGHT_SHIFT_ARITHMETIC : \">>\"": {
       "பெயர்ப்பு": {}
     },
-    "?power : molecule [ \"**\" factor ]": {
+    "LEFT_SHIFT_ARITHMETIC : \"<<\"": {
       "பெயர்ப்பு": {}
     },
-    "?molecule : molecule \"(\" [ arglist ] \")\" -> func_call \n         | molecule \"[\" [ subscriptlist ] \"]\" -> getitem \n         | molecule \".\" NAME -> getattr \n         | atom": {
+    "RIGHT_SHIFT_LOGICAL : \">>>\"": {
       "பெயர்ப்பு": {}
     },
-    "?atom : \"(\" [ yield_expr | testlist_comp ] \")\" -> tuple \n    | \"[\" [ listmaker ] \"]\" \n    | \"{\" [ dictorsetmaker ] \"}\" \n    | \"`\" testlist1 \"`\" \n    | \"(\" test \")\" \n    | NAME | number | string +": {
+    "LESS_THAN : \"<\"": {
       "பெயர்ப்பு": {}
     },
-    "listmaker : test ( list_for | ( \",\" test ) * [ \",\" ] )": {
+    "GREATER_THAN : \">\"": {
       "பெயர்ப்பு": {}
     },
-    "?testlist_comp : test ( comp_for | ( \",\" test ) + [ \",\" ] | \",\" )": {
+    "LESS_THAN_EQUALS : \"<=\"": {
       "பெயர்ப்பு": {}
     },
-    "lambdef : \"lambda\" [ paramlist ] \":\" test": {
+    "GREATER_THAN_EQUALS : \">=\"": {
       "பெயர்ப்பு": {}
     },
-    "?subscriptlist : subscript ( \",\" subscript ) * [ \",\" ]": {
+    "EQUALS : \"==\"": {
       "பெயர்ப்பு": {}
     },
-    "subscript : \".\" \".\" \".\" | test | [ test ] \":\" [ test ] [ sliceop ]": {
+    "NOT_EQUALS : \"!=\"": {
       "பெயர்ப்பு": {}
     },
-    "sliceop : \":\" [ test ]": {
+    "IDENTITY_EQUALS : \"===\"": {
       "பெயர்ப்பு": {}
     },
-    "?exprlist : expr ( \",\" expr ) * [ \",\" ]": {
+    "IDENTIFY_NOT_EQUALS : \"!==\"": {
       "பெயர்ப்பு": {}
     },
-    "?testlist : test ( \",\" test ) * [ \",\" ]": {
+    "BIT_AND : \"&\"": {
       "பெயர்ப்பு": {}
     },
-    "dictorsetmaker : ( ( test \":\" test ( comp_for | ( \",\" test \":\" test ) * [ \",\" ] ) ) | ( test ( comp_for | ( \",\" test ) * [ \",\" ] ) ) )": {
+    "BIT_XOR : \"^\"": {
       "பெயர்ப்பு": {}
     },
-    "classdef : \"class\" NAME [ \"(\" [ testlist ] \")\" ] \":\" suite": {
+    "BIT_OR : \"|\"": {
       "பெயர்ப்பு": {}
     },
-    "arglist : ( argument \",\" ) * ( argument [ \",\" ] \n                         | star_args [ \",\" kw_args ] \n                         | kw_args )": {
+    "AND : \"&&\"": {
       "பெயர்ப்பு": {}
     },
-    "star_args : \"*\" test": {
+    "OR : \"||\"": {
       "பெயர்ப்பு": {}
     },
-    "kw_args : \"**\" test": {
+    "MULTIPLY_ASSIGN : \"*=\"": {
       "பெயர்ப்பு": {}
     },
-    "argument : test [ comp_for ] | test \"=\" test": {
+    "DIVIDE_ASSIGN : \"/=\"": {
       "பெயர்ப்பு": {}
     },
-    "list_iter : list_for | list_if": {
+    "MODULUS_ASSIGN : \"%=\"": {
       "பெயர்ப்பு": {}
     },
-    "list_for : \"for\" exprlist \"in\" testlist_safe [ list_iter ]": {
+    "PLUS_ASSIGN : \"+=\"": {
       "பெயர்ப்பு": {}
     },
-    "list_if : \"if\" old_test [ list_iter ]": {
+    "MINUS_ASSIGN : \"-=\"": {
       "பெயர்ப்பு": {}
     },
-    "comp_iter : comp_for | comp_if": {
+    "LEFT_SHIFT_ARITHMETIC_ASSIGN : \"<<=\"": {
       "பெயர்ப்பு": {}
     },
-    "comp_for : \"for\" exprlist \"in\" or_test [ comp_iter ]": {
-      "பெயர்ப்பு": {
-        "த": "comp_for : \"ஒவ்வொன்றாக\" exprlist or_test \"இல்\" [ comp_iter ]",
-        "fr": "comp_for : \"pour\" exprlist \"de\" or_test [ comp_iter ]"
-      }
+    "RIGHT_SHIFT_ARITHMETIC_ASSIGN : \">>=\"": {
+      "பெயர்ப்பு": {}
     },
-    "comp_if : \"if\" old_test [ comp_iter ]": {
+    "RIGHT_SHIFT_LOGICAL_ASSIGN : \">>>=\"": {
       "பெயர்ப்பு": {}
     },
-    "testlist1 : test ( \",\" test ) *": {
+    "BIT_AND_ASSIGN : \"&=\"": {
       "பெயர்ப்பு": {}
     },
-    "yield_expr : \"yield\" [ testlist ]": {
+    "BIT_XOR_ASSIGN : \"^=\"": {
       "பெயர்ப்பு": {}
     },
-    "number : DEC_NUMBER | HEX_NUMBER | OCT_NUMBER | FLOAT | IMAG_NUMBER": {
+    "BIT_OR_ASSIGN : \"|=\"": {
       "பெயர்ப்பு": {}
     },
-    "string : STRING | LONG_STRING": {
+    "NULL_LITERAL : \"null\"": {
       "பெயர்ப்பு": {}
     },
-    "COMMENT : /#[^\\n]*/": {
+    "BOOLEAN_LITERAL : \"true\" | \"false\"": {
       "பெயர்ப்பு": {}
     },
-    "_NEWLINE : ( /\\r?\\n[\\t ]*/ | COMMENT ) +": {
+    "HEX_NUMBER : /0x[\\da-f]*/i": {
       "பெயர்ப்பு": {}
     },
-    "STRING : /[ubf]?r?(\"(?!\"\").*?(?<!\\\\)(\\\\\\\\)*?\"|'(?!'').*?(?<!\\\\)(\\\\\\\\)*?')/i": {
+    "OCT_NUMBER : /0o[0-7]*/i": {
       "பெயர்ப்பு": {}
     },
-    "LONG_STRING . 2 : /[ubf]?r?(\"\"\".*?(?<!\\\\)(\\\\\\\\)*?\"\"\"|'''.*?(?<!\\\\)(\\\\\\\\)*?''')/is": {
+    "BIN_NUMBER : /0b[0-1]*/i": {
       "பெயர்ப்பு": {}
     },
-    "HEX_NUMBER : /0x[\\da-f]*l?/i": {
+    "FLOAT_NUMBER : /((\\d+\\.\\d*|\\.\\d+)(e[-+]?\\d+)?|\\d+(e[-+]?\\d+))/i": {
       "பெயர்ப்பு": {}
     },
-    "OCT_NUMBER : /0o?[0-7]*l?/i": {
+    "STRING : /(\"(?!\"\").*?(?<!\\\\)(\\\\\\\\)*?\"|'(?!'').*?(?<!\\\\)(\\\\\\\\)*?')/i": {
       "பெயர்ப்பு": {}
     },
-    "%import common . FLOAT -> FLOAT": {
+    "NEWLINE : ( /\\r?\\n[\\t ]*/ ) +": {
       "பெயர்ப்பு": {}
     },
-    "%import common . INT -> _INT": {
+    "EOS : ( NEWLINE + | SEMICOLON )": {
       "பெயர்ப்பு": {}
     },
-    "%import common . CNAME -> NAME": {
+    "IDENTIFIER : NAME": {
       "பெயர்ப்பு": {}
     },
-    "IMAG_NUMBER : ( _INT | FLOAT ) ( \"j\" | \"J\" )": {
+    "%ignore /[\\r\\u2028\\u2029]/": {
       "பெயர்ப்பு": {}
     },
     "%ignore /[\\t \\f]+/": {
-      "பெயர்ப்பு": {}
-    },
-    "%ignore /\\\\[\\t \\f]*\\r?\\n/": {
-      "பெயர்ப்பு": {}
-    },
-    "%ignore COMMENT": {
-      "பெயர்ப்பு": {}
-    },
-    "%declare _INDENT _DEDENT": {
-      "பெயர்ப்பு": {}
-    },
-    "single_input : NEWLINE | simple_stmt | compound_stmt NEWLINE": {
-      "பெயர்ப்பு": {}
-    },
-    "file_input : ( NEWLINE | stmt ) *": {
-      "பெயர்ப்பு": {}
-    },
-    "eval_input : testlist NEWLINE *": {
-      "பெயர்ப்பு": {}
-    },
-    "!decorator : \"@\" dotted_name [ \"(\" [ arguments ] \")\" ] NEWLINE": {
-      "பெயர்ப்பு": {}
-    },
-    "decorated : decorators ( classdef | funcdef | async_funcdef )": {
-      "பெயர்ப்பு": {}
-    },
-    "async_funcdef : \"async\" funcdef": {
-      "பெயர்ப்பு": {}
-    },
-    "funcdef : \"def\" NAME \"(\" parameters ? \")\" [ \"->\" test ] \":\" suite": {
-      "பெயர்ப்பு": {
-        "த": "funcdef : \"நிரல்பாகம்\" NAME \"(\" parameters ? \")\" [ \"->\" test ] \":\" suite",
-        "fr": "funcdef : \"déf\" NAME \"(\" parameters ? \")\" [ \"->\" test ] \":\" suite",
-        "हिं": "funcdef : \"फलन\" NAME \"(\" parameters ? \")\" [ \"->\" test ] \":\" suite"
-      }
-    },
-    "!parameters : paramvalue ( \",\" paramvalue ) * [ \",\" [ starparams | kwparams ] ] \n          | starparams \n          | kwparams": {
-      "பெயர்ப்பு": {}
-    },
-    "starparams : \"*\" typedparam ? ( \",\" paramvalue ) * [ \",\" kwparams ]": {
-      "பெயர்ப்பு": {}
-    },
-    "kwparams : \"**\" typedparam": {
-      "பெயர்ப்பு": {}
-    },
-    "?paramvalue : typedparam [ \"=\" test ]": {
-      "பெயர்ப்பு": {}
-    },
-    "?typedparam : NAME [ \":\" test ]": {
-      "பெயர்ப்பு": {}
-    },
-    "!varargslist : ( vfpdef [ \"=\" test ] ( \",\" vfpdef [ \"=\" test ] ) * [ \",\" [ \"*\" [ vfpdef ] ( \",\" vfpdef [ \"=\" test ] ) * [ \",\" [ \"**\" vfpdef [ \",\" ] ] ] | \"**\" vfpdef [ \",\" ] ] ] \n  | \"*\" [ vfpdef ] ( \",\" vfpdef [ \"=\" test ] ) * [ \",\" [ \"**\" vfpdef [ \",\" ] ] ] \n  | \"**\" vfpdef [ \",\" ] )": {
-      "பெயர்ப்பு": {}
-    },
-    "vfpdef : NAME": {
-      "பெயர்ப்பு": {}
-    },
-    "!?simple_stmt : small_stmt ( \";\" small_stmt ) * [ \";\" ] NEWLINE": {
-      "பெயர்ப்பு": {}
-    },
-    "?small_stmt : ( expr_stmt | del_stmt | pass_stmt | flow_stmt | import_stmt | global_stmt | nonlocal_stmt | assert_stmt )": {
-      "பெயர்ப்பு": {}
-    },
-    "?expr_stmt : testlist_star_expr ( annassign | augassign ( yield_expr | testlist ) \n         | ( \"=\" ( yield_expr | testlist_star_expr ) ) * )": {
-      "பெயர்ப்பு": {}
-    },
-    "annassign : \":\" test [ \"=\" test ]": {
-      "பெயர்ப்பு": {}
-    },
-    "!?testlist_star_expr : ( test | star_expr ) ( \",\" ( test | star_expr ) ) * [ \",\" ]": {
-      "பெயர்ப்பு": {}
-    },
-    "!augassign : ( \"+=\" | \"-=\" | \"*=\" | \"@=\" | \"/=\" | \"%=\" | \"&=\" | \"|=\" | \"^=\" | \"<<=\" | \">>=\" | \"**=\" | \"//=\" )": {
-      "பெயர்ப்பு": {}
-    },
-    "flow_stmt : break_stmt | continue_stmt | return_stmt | raise_stmt | yield_stmt": {
-      "பெயர்ப்பு": {}
-    },
-    "raise_stmt : \"raise\" [ test [ \"from\" test ] ]": {
-      "பெயர்ப்பு": {}
-    },
-    "import_from : \"from\" ( dots ? dotted_name | dots ) \"import\" ( \"*\" | \"(\" import_as_names \")\" | import_as_names )": {
-      "பெயர்ப்பு": {}
-    },
-    "!dots : \".\" +": {
-      "பெயர்ப்பு": {}
-    },
-    "import_as_name : NAME [ \"as\" NAME ]": {
-      "பெயர்ப்பு": {}
-    },
-    "dotted_as_name : dotted_name [ \"as\" NAME ]": {
-      "பெயர்ப்பு": {}
-    },
-    "!import_as_names : import_as_name ( \",\" import_as_name ) * [ \",\" ]": {
-      "பெயர்ப்பு": {}
-    },
-    "nonlocal_stmt : \"nonlocal\" NAME ( \",\" NAME ) *": {
-      "பெயர்ப்பு": {}
-    },
-    "compound_stmt : if_stmt | while_stmt | for_stmt | try_stmt | with_stmt | funcdef | classdef | decorated | async_stmt": {
-      "பெயர்ப்பு": {}
-    },
-    "async_stmt : \"async\" ( funcdef | with_stmt | for_stmt )": {
-      "பெயர்ப்பு": {}
-    },
-    "except_clause : \"except\" [ test [ \"as\" NAME ] ]": {
-      "பெயர்ப்பு": {}
-    },
-    "suite : simple_stmt | NEWLINE INDENT stmt + DEDENT": {
-      "பெயர்ப்பு": {}
-    },
-    "?test_nocond : or_test | lambdef_nocond": {
-      "பெயர்ப்பு": {}
-    },
-    "lambdef : \"lambda\" [ varargslist ] \":\" test": {
-      "பெயர்ப்பு": {}
-    },
-    "lambdef_nocond : \"lambda\" [ varargslist ] \":\" test_nocond": {
-      "பெயர்ப்பு": {}
-    },
-    "?not_test : \"not\" not_test -> not \n         | comparison": {
-      "பெயர்ப்பு": {
-        "த": "?not_test : not_test \"இல்லை\" -> not \n         | comparison",
-        "fr": "?not_test : \"pas\" not_test -> not \n         | comparison",
-        "हिं": "?not_test : \"नहीं\" not_test -> not \n         | comparison"
-      }
-    },
-    "?comparison : expr ( _comp_op expr ) *": {
-      "பெயர்ப்பு": {}
-    },
-    "star_expr : \"*\" expr": {
-      "பெயர்ப்பு": {}
-    },
-    "?shift_expr : arith_expr ( _shift_op arith_expr ) *": {
-      "பெயர்ப்பு": {}
-    },
-    "?arith_expr : term ( _add_op term ) *": {
-      "பெயர்ப்பு": {}
-    },
-    "?term : factor ( _mul_op factor ) *": {
-      "பெயர்ப்பு": {}
-    },
-    "?factor : _factor_op factor | power": {
-      "பெயர்ப்பு": {}
-    },
-    "!_factor_op : \"+\" | \"-\" | \"~\"": {
-      "பெயர்ப்பு": {}
-    },
-    "!_add_op : \"+\" | \"-\"": {
-      "பெயர்ப்பு": {}
-    },
-    "!_shift_op : \"<<\" | \">>\"": {
-      "பெயர்ப்பு": {}
-    },
-    "!_mul_op : \"*\" | \"@\" | \"/\" | \"%\" | \"//\"": {
-      "பெயர்ப்பு": {}
-    },
-    "!_comp_op : \"<\" | \">\" | \"==\" | \">=\" | \"<=\" | \"<>\" | \"!=\" | \"in\" | \"not\" \"in\" | \"is\" | \"is\" \"not\"": {
-      "பெயர்ப்பு": {}
-    },
-    "?power : await_expr [ \"**\" factor ]": {
-      "பெயர்ப்பு": {}
-    },
-    "?await_expr : [ \"await\" ] atom_expr": {
-      "பெயர்ப்பு": {}
-    },
-    "?atom_expr : atom_expr \"(\" [ arguments ] \")\" -> funccall \n          | atom_expr \"[\" subscriptlist \"]\" -> getitem \n          | atom_expr \".\" NAME -> getattr \n          | atom": {
-      "பெயர்ப்பு": {}
-    },
-    "?atom : \"(\" [ yield_expr | testlist_comp ] \")\" -> tuple \n     | \"[\" [ testlist_comp ] \"]\" -> list \n     | \"{\" [ dictorsetmaker ] \"}\" -> dict \n     | NAME -> var \n     | number | string + \n     | \"(\" test \")\" -> par_group \n     | \"...\" -> ellipsis \n     | \"None\" -> const_none \n     | \"True\" -> const_true \n     | \"False\" -> const_false": {
-      "பெயர்ப்பு": {
-        "த": "?atom : \"(\" [ yield_expr | testlist_comp ] \")\" -> tuple \n     | \"[\" [ testlist_comp ] \"]\" -> list \n     | \"{\" [ dictorsetmaker ] \"}\" -> dict \n     | NAME -> var \n     | number | string + \n     | \"(\" test \")\" -> par_group \n     | \"...\" -> ellipsis \n     | \"ஒன்றுமில்லை\" -> const_none \n     | \"உண்மை\" -> const_true \n     | \"தப்பு\" -> const_false",
-        "fr": "?atom : \"(\" [ yield_expr | testlist_comp ] \")\" -> tuple \n     | \"[\" [ testlist_comp ] \"]\" -> list \n     | \"{\" [ dictorsetmaker ] \"}\" -> dict \n     | NAME -> var \n     | number | string + \n     | \"(\" test \")\" -> par_group \n     | \"...\" -> ellipsis \n     | \"Nulle\" -> const_none \n     | \"Vrai\" -> const_true \n     | \"Faux\" -> const_false",
-        "हिं": "?atom : \"(\" [ yield_expr | testlist_comp ] \")\" -> tuple \n     | \"[\" [ testlist_comp ] \"]\" -> list \n     | \"{\" [ dictorsetmaker ] \"}\" -> dict \n     | NAME -> var \n     | number | string + \n     | \"(\" test \")\" -> par_group \n     | \"...\" -> ellipsis \n     | \"रिक्त\" -> const_none \n     | \"सही\" -> const_true \n     | \"ग़लत\" -> const_false",
-        "汉语": "?atom : \"(\" [ yield_expr | testlist_comp ] \")\" -> tuple \n     | \"[\" [ testlist_comp ] \"]\" -> list \n     | \"{\" [ dictorsetmaker ] \"}\" -> dict \n     | NAME -> var \n     | number | string + \n     | \"(\" test \")\" -> par_group \n     | \"...\" -> ellipsis \n     | \"空\" -> const_none \n     | \"真\" -> const_true \n     | \"假\" -> const_false"
-      }
-    },
-    "!?testlist_comp : ( test | star_expr ) [ comp_for | ( \",\" ( test | star_expr ) ) + [ \",\" ] | \",\" ]": {
-      "பெயர்ப்பு": {}
-    },
-    "!subscriptlist : subscript ( \",\" subscript ) * [ \",\" ]": {
-      "பெயர்ப்பு": {}
-    },
-    "subscript : test | [ test ] \":\" [ test ] [ sliceop ]": {
-      "பெயர்ப்பு": {}
-    },
-    "!exprlist : ( expr | star_expr ) ( \",\" ( expr | star_expr ) ) * [ \",\" ]": {
-      "பெயர்ப்பு": {}
-    },
-    "!testlist : test ( \",\" test ) * [ \",\" ]": {
-      "பெயர்ப்பு": {}
-    },
-    "!dictorsetmaker : ( ( ( test \":\" test | \"**\" expr ) ( comp_for | ( \",\" ( test \":\" test | \"**\" expr ) ) * [ \",\" ] ) ) | ( ( test | star_expr ) ( comp_for | ( \",\" ( test | star_expr ) ) * [ \",\" ] ) ) )": {
-      "பெயர்ப்பு": {}
-    },
-    "classdef : \"class\" NAME [ \"(\" [ arguments ] \")\" ] \":\" suite": {
-      "பெயர்ப்பு": {
-        "த": "classdef : \"தொகுப்பு\" NAME [ \"(\" [ arguments ] \")\" ] \":\" suite",
-        "fr": "classdef : \"classe\" NAME [ \"(\" [ arguments ] \")\" ] \":\" suite",
-        "हिं": "classdef : \"वर्ग\" NAME [ \"(\" [ arguments ] \")\" ] \":\" suite"
-      }
-    },
-    "!arguments : argvalue ( \",\" argvalue ) * [ \",\" [ starargs | kwargs ] ] \n         | starargs \n         | kwargs \n         | test comp_for": {
-      "பெயர்ப்பு": {}
-    },
-    "!starargs : \"*\" test ( \",\" \"*\" test ) * ( \",\" argvalue ) * [ \",\" kwargs ]": {
-      "பெயர்ப்பு": {}
-    },
-    "kwargs : \"**\" test": {
-      "பெயர்ப்பு": {}
-    },
-    "?argvalue : test [ \"=\" test ]": {
-      "பெயர்ப்பு": {}
-    },
-    "comp_iter : comp_for | comp_if | async_for": {
-      "பெயர்ப்பு": {}
-    },
-    "async_for : \"async\" \"for\" exprlist \"in\" or_test [ comp_iter ]": {
-      "பெயர்ப்பு": {}
-    },
-    "comp_if : \"if\" test_nocond [ comp_iter ]": {
-      "பெயர்ப்பு": {}
-    },
-    "encoding_decl : NAME": {
-      "பெயர்ப்பு": {}
-    },
-    "yield_expr : \"yield\" [ yield_arg ]": {
-      "பெயர்ப்பு": {}
-    },
-    "yield_arg : \"from\" test | testlist": {
-      "பெயர்ப்பு": {}
-    },
-    "number : DEC_NUMBER | HEX_NUMBER | OCT_NUMBER | FLOAT_NUMBER | IMAG_NUMBER": {
-      "பெயர்ப்பு": {}
-    },
-    "NEWLINE : ( /\\r?\\n[\\t ]*/ | COMMENT ) +": {
-      "பெயர்ப்பு": {}
-    },
-    "STRING . 2 : /[ubf]?r?(\"(?!\"\").*?(?<!\\\\)(\\\\\\\\)*?\"|'(?!'').*?(?<!\\\\)(\\\\\\\\)*?')/i": {
-      "பெயர்ப்பு": {}
-    },
-    "HEX_NUMBER . 2 : /0x[\\da-f]*/i": {
-      "பெயர்ப்பு": {}
-    },
-    "OCT_NUMBER . 2 : /0o[0-7]*/i": {
-      "பெயர்ப்பு": {}
-    },
-    "BIN_NUMBER . 2 : /0b[0-1]*/i": {
-      "பெயர்ப்பு": {}
-    },
-    "FLOAT_NUMBER . 2 : /((\\d+\\.\\d*|\\.\\d+)(e[-+]?\\d+)?|\\d+(e[-+]?\\d+))/i": {
-      "பெயர்ப்பு": {}
-    },
-    "IMAG_NUMBER . 2 : /\\d+j|${FLOAT_NUMBER}j/i": {
-      "பெயர்ப்பு": {}
-    },
-    "%declare INDENT DEDENT": {
       "பெயர்ப்பு": {}
     }
   },
