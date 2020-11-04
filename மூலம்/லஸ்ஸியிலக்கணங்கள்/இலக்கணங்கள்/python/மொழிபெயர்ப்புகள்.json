@@ -173,7 +173,7 @@
       "?or_test : and_test ( \"or\" and_test ) *",
       "?and_test : not_test ( \"and\" not_test ) *",
       "?not_test : \"not\" not_test -> not \n         | comparison",
-      "?comparison : expr ( comp_op expr ) *",
+      "?comparison : expr ( _comp_op expr ) *",
       "star_expr : \"*\" expr",
       "?expr : xor_expr ( \"|\" xor_expr ) *",
       "?xor_expr : and_expr ( \"^\" and_expr ) *",
@@ -186,7 +186,7 @@
       "!_add_op : \"+\" | \"-\"",
       "!_shift_op : \"<<\" | \">>\"",
       "!_mul_op : \"*\" | \"@\" | \"/\" | \"%\" | \"//\"",
-      "!comp_op : \"<\" | \">\" | \"==\" | \">=\" | \"<=\" | \"<>\" | \"!=\" \n    | \"in\" -> in_comp \n    | \"not\" \"in\" -> not_in_comp \n    | \"is\" -> is_comp \n    | \"is\" \"not\" -> is_not_comp",
+      "!_comp_op : \"<\" | \">\" | \"==\" | \">=\" | \"<=\" | \"<>\" | \"!=\" | \"in\" | \"not\" \"in\" | \"is\" | \"is\" \"not\"",
       "?power : await_expr [ \"**\" factor ]",
       "?await_expr : [ \"await\" ] atom_expr",
       "?atom_expr : atom_expr \"(\" [ arguments ] \")\" -> funccall \n          | atom_expr \"[\" subscriptlist \"]\" -> getitem \n          | atom_expr \".\" NAME -> getattr \n          | atom",
@@ -380,6 +380,9 @@
         "rw": "?import_as_name : NAME [ \"nka\" NAME ]",
         "हिं": "?import_as_name : NAME [ \"यानी\" NAME ]"
       }
+    },
+    "?dotted_as_name : dotted_name [ \"as\" NAME ]": {
+      "பெயர்ப்பு": {}
     },
     "import_as_names : import_as_name ( \",\" import_as_name ) * [ \",\" ]": {
       "பெயர்ப்பு": {}
@@ -800,8 +803,7 @@
       "பெயர்ப்பு": {}
     },
     "except_clause : \"except\" [ test [ \"as\" NAME ] ]": {
-      "பெயர்ப்பு": {
-      }
+      "பெயர்ப்பு": {}
     },
     "suite : simple_stmt | NEWLINE INDENT stmt + DEDENT": {
       "பெயர்ப்பு": {}
@@ -824,6 +826,9 @@
         "rw": "?not_test : \"ni\" not_test -> not \n         | comparison",
         "汉": "?not_test : \"非\" not_test -> not \n         | comparison"
       }
+    },
+    "?comparison : expr ( _comp_op expr ) *": {
+      "பெயர்ப்பு": {}
     },
     "star_expr : \"*\" expr": {
       "பெயர்ப்பு": {}
