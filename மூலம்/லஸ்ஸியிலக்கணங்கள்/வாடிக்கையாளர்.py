@@ -1,13 +1,31 @@
 import json
 import os
+import unicodedata
 from warnings import warn
 
 import semantic_version
+from lark import Lark, Tree, Visitor
+from lark.reconstruct import Reconstructor
 from nuchabäl import chijun
 from எண்ணிக்கை import சுருங்குறித்தொடர் as சு, உரைக்கு as உ, முறைமைகள்
 
-from lark import Lark, Tree
-from lark.reconstruct import Reconstructor
+
+def எண்ணெழுத்து(ஆ, கண்டிப்பான=True):
+    if len(ஆ) != 1:
+        if கண்டிப்பான:
+            return all(எண்ணெழுத்து(இ, கண்டிப்பான) for இ in ஆ)
+        else:
+            return any(எண்ணெழுத்து(இ, கண்டிப்பான) for இ in ஆ)
+    return unicodedata.category(ஆ) in ['Lu', 'Ll', 'Lt', 'Lm', 'Lo', 'Nl', 'Mn', 'Mc', 'Nd', 'Pc']
+
+
+class _சட்டம்_பகுப்பாய்வி(Visitor):
+    def __init__(self):
+        self.தேவை = False
+
+    def literal(self, ஆ):
+        if எண்ணெழுத்து(ஆ.children[0], கண்டிப்பான=False):
+            self.தேவை = True
 
 
 class நிரல்மொழித்தகவல்கள்(object):
@@ -61,10 +79,14 @@ class நிரல்மொழித்தகவல்கள்(object):
         return விதி_பதிப்புகள்['']
 
     def விதி_மொழிபெயர்ப்பு(தன், நிரல்மொழி, மொழி, விதி):
+        விதி_தகவல்கள் = தன்._மொழிபெயர்ப்புகள்[நிரல்மொழி]['விதிகள்'][விதி]
+        if மொழி == தன்.தகவல்(நிரல்மொழி, 'மொழி', பதிப்பு=None):
+            return விதி
         try:
-            return தன்._மொழிபெயர்ப்புகள்[நிரல்மொழி]['விதிகள்'][விதி]["பெயர்ப்பு"][மொழி]
+            return விதி_தகவல்கள்["பெயர்ப்பு"][மொழி]
         except KeyError:
-            pass
+            if 'தேவை' in விதி_தகவல்கள் and not விதி_தகவல்கள்['தேவை']:
+                return விதி
 
     def இலக்கணம்_விதிகள்(தன், நிரல்மொழி, மொழி=None, எண்ணுரு=None, பதிப்பு=None):
         பதிப்பு = தன்.பதிப்பு_கண்டறி(நிரல்மொழி, பதிப்பு)
@@ -197,7 +219,15 @@ class நிரல்மொழித்தகவல்கள்(object):
                         மொழிபெயர்ப்பு_அகராதி['பதிப்புகள்'][ப].append(விதி)
 
                         if விதி not in மொழிபெயர்ப்பு_அகராதி['விதிகள்']:
-                            மொழிபெயர்ப்பு_அகராதி['விதிகள்'][விதி] = {'பெயர்ப்பு': {}}
+                            அகராதி = {'பெயர்ப்பு': {}}
+                            பகுப்பாய்வி = _சட்டம்_பகுப்பாய்வி()
+                            if இ.data in ['rule', 'token']:
+                                பகுப்பாய்வி.visit(இ.children[1])
+                                if not பகுப்பாய்வி.தேவை:
+                                    அகராதி['தேவை'] = False
+                            else:
+                                அகராதி['தேவை'] = False
+                            மொழிபெயர்ப்பு_அகராதி['விதிகள்'][விதி] = அகராதி
 
             try:
                 முன் = தன்._மொழிபெயர்ப்புகள்[நிரல்மொழி]

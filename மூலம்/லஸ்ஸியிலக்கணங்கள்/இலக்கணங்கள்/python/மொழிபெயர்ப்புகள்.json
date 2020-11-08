@@ -229,22 +229,28 @@
   },
   "விதிகள்": {
     "single_input : _NEWLINE | simple_stmt | compound_stmt _NEWLINE": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "?file_input : ( _NEWLINE | stmt ) *": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "eval_input : testlist _NEWLINE ?": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "decorator : \"@\" dotted_name [ \"(\" [ arglist ] \")\" ] _NEWLINE": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "decorators : decorator +": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "decorated : decorators ( classdef | funcdef )": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "funcdef : \"def\" NAME \"(\" parameters \")\" \":\" suite": {
       "பெயர்ப்பு": {
@@ -254,40 +260,52 @@
       }
     },
     "parameters : [ paramlist ]": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "paramlist : param ( \",\" param ) * [ \",\" [ star_params [ \",\" kw_params ] | kw_params ] ] \n           | star_params [ \",\" kw_params ] \n           | kw_params": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "star_params : \"*\" NAME": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "kw_params : \"**\" NAME": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "param : fpdef [ \"=\" test ]": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "fpdef : NAME | \"(\" fplist \")\"": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "fplist : fpdef ( \",\" fpdef ) * [ \",\" ]": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "?stmt : simple_stmt | compound_stmt": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "?simple_stmt : small_stmt ( \";\" small_stmt ) * [ \";\" ] _NEWLINE": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "?small_stmt : ( expr_stmt | print_stmt | del_stmt | pass_stmt | flow_stmt \n          | import_stmt | global_stmt | exec_stmt | assert_stmt )": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "expr_stmt : testlist augassign ( yield_expr | testlist ) -> augassign2 \n         | testlist ( \"=\" ( yield_expr | testlist ) ) + -> assign \n         | testlist": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "augassign : ( \"+=\" | \"-=\" | \"*=\" | \"/=\" | \"%=\" | \"&=\" | \"|=\" | \"^=\" | \"<<=\" | \">>=\" | \"**=\" | \"//=\" )": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "print_stmt : \"print\" ( [ test ( \",\" test ) * [ \",\" ] ] | \">>\" test [ ( \",\" test ) + [ \",\" ] ] )": {
       "பெயர்ப்பு": {
@@ -312,7 +330,8 @@
       }
     },
     "?flow_stmt : break_stmt | continue_stmt | return_stmt | raise_stmt | yield_stmt": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "break_stmt : \"break\"": {
       "பெயர்ப்பு": {
@@ -342,7 +361,8 @@
       }
     },
     "yield_stmt : yield_expr": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "raise_stmt : \"raise\" [ test [ \",\" test [ \",\" test ] ] ]": {
       "பெயர்ப்பு": {
@@ -353,7 +373,8 @@
       }
     },
     "import_stmt : import_name | import_from": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "import_name : \"import\" dotted_as_names": {
       "பெயர்ப்பு": {
@@ -385,13 +406,16 @@
       "பெயர்ப்பு": {}
     },
     "import_as_names : import_as_name ( \",\" import_as_name ) * [ \",\" ]": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "dotted_as_names : dotted_as_name ( \",\" dotted_as_name ) *": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "dotted_name : NAME ( \".\" NAME ) *": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "global_stmt : \"global\" NAME ( \",\" NAME ) *": {
       "பெயர்ப்பு": {
@@ -410,7 +434,8 @@
       }
     },
     "?compound_stmt : if_stmt | while_stmt | for_stmt | try_stmt | with_stmt | funcdef | classdef | decorated": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "if_stmt : \"if\" test \":\" suite ( \"elif\" test \":\" suite ) * [ \"else\" \":\" suite ]": {
       "பெயர்ப்பு": {
@@ -475,13 +500,16 @@
       }
     },
     "suite : simple_stmt | _NEWLINE _INDENT _NEWLINE ? stmt + _DEDENT _NEWLINE ?": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "testlist_safe : old_test [ ( \",\" old_test ) + [ \",\" ] ]": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "old_test : or_test | old_lambdef": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "old_lambdef : \"lambda\" [ paramlist ] \":\" old_test": {
       "பெயர்ப்பு": {}
@@ -515,7 +543,8 @@
       }
     },
     "?comparison : expr ( comp_op expr ) *": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "comp_op : \"<\" | \">\" | \"==\" | \">=\" | \"<=\" | \"<>\" | \"!=\" | \"in\" | \"not\" \"in\" | \"is\" | \"is\" \"not\"": {
       "பெயர்ப்பு": {
@@ -524,40 +553,52 @@
       }
     },
     "?expr : xor_expr ( \"|\" xor_expr ) *": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "?xor_expr : and_expr ( \"^\" and_expr ) *": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "?and_expr : shift_expr ( \"&\" shift_expr ) *": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "?shift_expr : arith_expr ( ( \"<<\" | \">>\" ) arith_expr ) *": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "?arith_expr : term ( ( \"+\" | \"-\" ) term ) *": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "?term : factor ( ( \"*\" | \"/\" | \"%\" | \"//\" ) factor ) *": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "?factor : ( \"+\" | \"-\" | \"~\" ) factor | power": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "?power : molecule [ \"**\" factor ]": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "?molecule : molecule \"(\" [ arglist ] \")\" -> func_call \n         | molecule \"[\" [ subscriptlist ] \"]\" -> getitem \n         | molecule \".\" NAME -> getattr \n         | atom": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "?atom : \"(\" [ yield_expr | testlist_comp ] \")\" -> tuple \n    | \"[\" [ listmaker ] \"]\" \n    | \"{\" [ dictorsetmaker ] \"}\" \n    | \"`\" testlist1 \"`\" \n    | \"(\" test \")\" \n    | NAME | number | string +": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "listmaker : test ( list_for | ( \",\" test ) * [ \",\" ] )": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "?testlist_comp : test ( comp_for | ( \",\" test ) + [ \",\" ] | \",\" )": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "lambdef : \"lambda\" [ paramlist ] \":\" test": {
       "பெயர்ப்பு": {
@@ -565,22 +606,28 @@
       }
     },
     "?subscriptlist : subscript ( \",\" subscript ) * [ \",\" ]": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "subscript : \".\" \".\" \".\" | test | [ test ] \":\" [ test ] [ sliceop ]": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "sliceop : \":\" [ test ]": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "?exprlist : expr ( \",\" expr ) * [ \",\" ]": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "?testlist : test ( \",\" test ) * [ \",\" ]": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "dictorsetmaker : ( ( test \":\" test ( comp_for | ( \",\" test \":\" test ) * [ \",\" ] ) ) | ( test ( comp_for | ( \",\" test ) * [ \",\" ] ) ) )": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "classdef : \"class\" NAME [ \"(\" [ testlist ] \")\" ] \":\" suite": {
       "பெயர்ப்பு": {
@@ -589,19 +636,24 @@
       }
     },
     "arglist : ( argument \",\" ) * ( argument [ \",\" ] \n                         | star_args [ \",\" kw_args ] \n                         | kw_args )": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "star_args : \"*\" test": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "kw_args : \"**\" test": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "argument : test [ comp_for ] | test \"=\" test": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "list_iter : list_for | list_if": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "list_for : \"for\" exprlist \"in\" testlist_safe [ list_iter ]": {
       "பெயர்ப்பு": {
@@ -616,7 +668,8 @@
       }
     },
     "comp_iter : comp_for | comp_if": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "comp_for : \"for\" exprlist \"in\" or_test [ comp_iter ]": {
       "பெயர்ப்பு": {
@@ -635,7 +688,8 @@
       }
     },
     "testlist1 : test ( \",\" test ) *": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "yield_expr : \"yield\" [ testlist ]": {
       "பெயர்ப்பு": {
@@ -644,10 +698,12 @@
       }
     },
     "number : DEC_NUMBER | HEX_NUMBER | OCT_NUMBER | FLOAT | IMAG_NUMBER": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "string : STRING | LONG_STRING": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "COMMENT : /#[^\\n]*/": {
       "பெயர்ப்பு": {}
@@ -659,7 +715,8 @@
       "பெயர்ப்பு": {}
     },
     "LONG_STRING . 2 : /[ubf]?r?(\"\"\".*?(?<!\\\\)(\\\\\\\\)*?\"\"\"|'''.*?(?<!\\\\)(\\\\\\\\)*?''')/is": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "HEX_NUMBER : /0x[\\da-f]*l?/i": {
       "பெயர்ப்பு": {}
@@ -668,43 +725,55 @@
       "பெயர்ப்பு": {}
     },
     "%import common . FLOAT -> FLOAT": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "%import common . INT -> _INT": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "%import common . CNAME -> NAME": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "IMAG_NUMBER : ( _INT | FLOAT ) ( \"j\" | \"J\" )": {
       "பெயர்ப்பு": {}
     },
     "%ignore /[\\t \\f]+/": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "%ignore /\\\\[\\t \\f]*\\r?\\n/": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "%ignore COMMENT": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "%declare _INDENT _DEDENT": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "single_input : NEWLINE | simple_stmt | compound_stmt NEWLINE": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "file_input : ( NEWLINE | stmt ) *": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "eval_input : testlist NEWLINE *": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "!decorator : \"@\" dotted_name [ \"(\" [ arguments ] \")\" ] NEWLINE": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "decorated : decorators ( classdef | funcdef | async_funcdef )": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "async_funcdef : \"async\" funcdef": {
       "பெயர்ப்பு": {}
@@ -721,46 +790,60 @@
       }
     },
     "!parameters : paramvalue ( \",\" paramvalue ) * [ \",\" [ starparams | kwparams ] ] \n          | starparams \n          | kwparams": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "starparams : \"*\" typedparam ? ( \",\" paramvalue ) * [ \",\" kwparams ]": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "kwparams : \"**\" typedparam": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "?paramvalue : typedparam [ \"=\" test ]": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "?typedparam : NAME [ \":\" test ]": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "!varargslist : ( vfpdef [ \"=\" test ] ( \",\" vfpdef [ \"=\" test ] ) * [ \",\" [ \"*\" [ vfpdef ] ( \",\" vfpdef [ \"=\" test ] ) * [ \",\" [ \"**\" vfpdef [ \",\" ] ] ] | \"**\" vfpdef [ \",\" ] ] ] \n  | \"*\" [ vfpdef ] ( \",\" vfpdef [ \"=\" test ] ) * [ \",\" [ \"**\" vfpdef [ \",\" ] ] ] \n  | \"**\" vfpdef [ \",\" ] )": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "vfpdef : NAME": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "!?simple_stmt : small_stmt ( \";\" small_stmt ) * [ \";\" ] NEWLINE": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "?small_stmt : ( expr_stmt | del_stmt | pass_stmt | flow_stmt | import_stmt | global_stmt | nonlocal_stmt | assert_stmt )": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "?expr_stmt : testlist_star_expr ( annassign | augassign ( yield_expr | testlist ) \n         | ( \"=\" ( yield_expr | testlist_star_expr ) ) * )": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "annassign : \":\" test [ \"=\" test ]": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "!?testlist_star_expr : ( test | star_expr ) ( \",\" ( test | star_expr ) ) * [ \",\" ]": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "!augassign : ( \"+=\" | \"-=\" | \"*=\" | \"@=\" | \"/=\" | \"%=\" | \"&=\" | \"|=\" | \"^=\" | \"<<=\" | \">>=\" | \"**=\" | \"//=\" )": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "flow_stmt : break_stmt | continue_stmt | return_stmt | raise_stmt | yield_stmt": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "raise_stmt : \"raise\" [ test [ \"from\" test ] ]": {
       "பெயர்ப்பு": {
@@ -776,7 +859,8 @@
       }
     },
     "!dots : \".\" +": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "import_as_name : NAME [ \"as\" NAME ]": {
       "பெயர்ப்பு": {}
@@ -791,13 +875,15 @@
       }
     },
     "!import_as_names : import_as_name ( \",\" import_as_name ) * [ \",\" ]": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "nonlocal_stmt : \"nonlocal\" NAME ( \",\" NAME ) *": {
       "பெயர்ப்பு": {}
     },
     "compound_stmt : if_stmt | while_stmt | for_stmt | try_stmt | with_stmt | funcdef | classdef | decorated | async_stmt": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "async_stmt : \"async\" ( funcdef | with_stmt | for_stmt )": {
       "பெயர்ப்பு": {}
@@ -806,10 +892,12 @@
       "பெயர்ப்பு": {}
     },
     "suite : simple_stmt | NEWLINE INDENT stmt + DEDENT": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "?test_nocond : or_test | lambdef_nocond": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "lambdef : \"lambda\" [ varargslist ] \":\" test": {
       "பெயர்ப்பு": {}
@@ -828,34 +916,44 @@
       }
     },
     "?comparison : expr ( _comp_op expr ) *": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "star_expr : \"*\" expr": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "?shift_expr : arith_expr ( _shift_op arith_expr ) *": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "?arith_expr : term ( _add_op term ) *": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "?term : factor ( _mul_op factor ) *": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "?factor : _factor_op factor | power": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "!_factor_op : \"+\" | \"-\" | \"~\"": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "!_add_op : \"+\" | \"-\"": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "!_shift_op : \"<<\" | \">>\"": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "!_mul_op : \"*\" | \"@\" | \"/\" | \"%\" | \"//\"": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "!_comp_op : \"<\" | \">\" | \"==\" | \">=\" | \"<=\" | \"<>\" | \"!=\" | \"in\" | \"not\" \"in\" | \"is\" | \"is\" \"not\"": {
       "பெயர்ப்பு": {
@@ -864,13 +962,15 @@
       }
     },
     "?power : await_expr [ \"**\" factor ]": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "?await_expr : [ \"await\" ] atom_expr": {
       "பெயர்ப்பு": {}
     },
     "?atom_expr : atom_expr \"(\" [ arguments ] \")\" -> funccall \n          | atom_expr \"[\" subscriptlist \"]\" -> getitem \n          | atom_expr \".\" NAME -> getattr \n          | atom": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "?atom : \"(\" [ yield_expr | testlist_comp ] \")\" -> tuple \n     | \"[\" [ testlist_comp ] \"]\" -> list \n     | \"{\" [ dictorsetmaker ] \"}\" -> dict \n     | NAME -> var \n     | number | string + \n     | \"(\" test \")\" -> par_group \n     | \"...\" -> ellipsis \n     | \"None\" -> const_none \n     | \"True\" -> const_true \n     | \"False\" -> const_false": {
       "பெயர்ப்பு": {
@@ -884,25 +984,32 @@
       }
     },
     "!?testlist_comp : ( test | star_expr ) [ comp_for | ( \",\" ( test | star_expr ) ) + [ \",\" ] | \",\" ]": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "!subscriptlist : subscript ( \",\" subscript ) * [ \",\" ]": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "!subscript : test | [ test ] \":\" [ test ] [ sliceop ]": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "!sliceop : \":\" [ test ]": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "!exprlist : ( expr | star_expr ) ( \",\" ( expr | star_expr ) ) * [ \",\" ]": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "!testlist : test ( \",\" test ) * [ \",\" ]": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "!dictorsetmaker : ( ( ( test \":\" test | \"**\" expr ) ( comp_for | ( \",\" ( test \":\" test | \"**\" expr ) ) * [ \",\" ] ) ) | ( ( test | star_expr ) ( comp_for | ( \",\" ( test | star_expr ) ) * [ \",\" ] ) ) )": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "classdef : \"class\" NAME [ \"(\" [ arguments ] \")\" ] \":\" suite": {
       "பெயர்ப்பு": {
@@ -915,19 +1022,24 @@
       }
     },
     "!arguments : argvalue ( \",\" argvalue ) * [ \",\" [ starargs | kwargs ] ] \n         | starargs \n         | kwargs \n         | test comp_for": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "!starargs : \"*\" test ( \",\" \"*\" test ) * ( \",\" argvalue ) * [ \",\" kwargs ]": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "kwargs : \"**\" test": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "?argvalue : test [ \"=\" test ]": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "comp_iter : comp_for | comp_if | async_for": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "async_for : \"async\" \"for\" exprlist \"in\" or_test [ comp_iter ]": {
       "பெயர்ப்பு": {}
@@ -936,7 +1048,8 @@
       "பெயர்ப்பு": {}
     },
     "encoding_decl : NAME": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "yield_expr : \"yield\" [ yield_arg ]": {
       "பெயர்ப்பு": {
@@ -949,31 +1062,39 @@
       }
     },
     "number : DEC_NUMBER | HEX_NUMBER | OCT_NUMBER | FLOAT_NUMBER | IMAG_NUMBER": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "NEWLINE : ( /\\r?\\n[\\t ]*/ | COMMENT ) +": {
       "பெயர்ப்பு": {}
     },
     "STRING . 2 : /(([ubf]?r?)|(r?[ubf]?))(\"(?!\"\").*?(?<!\\\\)(\\\\\\\\)*?\"|'(?!'').*?(?<!\\\\)(\\\\\\\\)*?')/i": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "HEX_NUMBER . 2 : /0x[\\da-f]*/i": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "OCT_NUMBER . 2 : /0o[0-7]*/i": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "BIN_NUMBER . 2 : /0b[0-1]*/i": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "FLOAT_NUMBER . 2 : /((\\d+\\.\\d*|\\.\\d+)(e[-+]?\\d+)?|\\d+(e[-+]?\\d+))/i": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "IMAG_NUMBER . 2 : /\\d+j|${FLOAT_NUMBER}j/i": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "%declare INDENT DEDENT": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     }
   },
   "மொழிபெயர்ப்பாளர்கள்": [

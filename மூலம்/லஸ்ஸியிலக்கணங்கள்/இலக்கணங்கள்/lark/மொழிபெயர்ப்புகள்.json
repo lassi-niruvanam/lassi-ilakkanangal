@@ -14,10 +14,10 @@
       "priority : \".\" NUMBER",
       "statement : \"%ignore\" expansions NL -> ignore \n         | \"%import\" import_args [ \"->\" TOKEN ] NL -> import \n         | \"%declare\" name + -> declare",
       "import_args : name ( \".\" name ) *",
-      "expansions : alias ( VBAR alias ) *",
-      "alias : expansion [ \"->\" RULE ]",
+      "?expansions : alias ( VBAR alias ) *",
+      "?alias : expansion [ \"->\" RULE ]",
       "expansion : expr *",
-      "expr : atom [ OP | \"~\" NUMBER [ \"..\" NUMBER ] ]",
+      "?expr : atom [ OP | \"~\" NUMBER [ \"..\" NUMBER ] ]",
       "atom : \"(\" expansions \")\" \n     | \"[\" expansions \"]\" -> maybe \n     | STRING \"..\" STRING -> literal_range \n     | name \n     | ( REGEXP | STRING ) -> literal",
       "name : RULE \n    | TOKEN",
       "VBAR : NL ? \"|\"",
@@ -37,46 +37,59 @@
   },
   "விதிகள்": {
     "start : ( _item | NL ) *": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "_item : rule \n     | token \n     | statement": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "rule : RULE priority ? \":\" expansions NL": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "token : TOKEN priority ? \":\" expansions NL": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "priority : \".\" NUMBER": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "statement : \"%ignore\" expansions NL -> ignore \n         | \"%import\" import_args [ \"->\" TOKEN ] NL -> import \n         | \"%declare\" name + -> declare": {
       "பெயர்ப்பு": {}
     },
     "import_args : name ( \".\" name ) *": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
-    "expansions : alias ( VBAR alias ) *": {
-      "பெயர்ப்பு": {}
+    "?expansions : alias ( VBAR alias ) *": {
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
-    "alias : expansion [ \"->\" RULE ]": {
-      "பெயர்ப்பு": {}
+    "?alias : expansion [ \"->\" RULE ]": {
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "expansion : expr *": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
-    "expr : atom [ OP | \"~\" NUMBER [ \"..\" NUMBER ] ]": {
-      "பெயர்ப்பு": {}
+    "?expr : atom [ OP | \"~\" NUMBER [ \"..\" NUMBER ] ]": {
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "atom : \"(\" expansions \")\" \n     | \"[\" expansions \"]\" -> maybe \n     | STRING \"..\" STRING -> literal_range \n     | name \n     | ( REGEXP | STRING ) -> literal": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "name : RULE \n    | TOKEN": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "VBAR : NL ? \"|\"": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "OP : /[+*][?]?|[?](?![a-z])/": {
       "பெயர்ப்பு": {}
@@ -97,22 +110,27 @@
       "பெயர்ப்பு": {}
     },
     "%import common . ESCAPED_STRING -> _STRING": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "%import common . INT -> NUMBER": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "%import common . WS_INLINE": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "COMMENT : \"//\" /[^\\n]/ *": {
       "பெயர்ப்பு": {}
     },
     "%ignore WS_INLINE": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     },
     "%ignore COMMENT": {
-      "பெயர்ப்பு": {}
+      "பெயர்ப்பு": {},
+      "தேவை": false
     }
   },
   "மொழிபெயர்ப்பாளர்கள்": []

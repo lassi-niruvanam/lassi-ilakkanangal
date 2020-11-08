@@ -1,10 +1,10 @@
 {
   "name": "lassi-ilakkanankal",
-  "version": "1.0.5",
+  "version": "1.0.12",
   "description": "லஸ்ஸி மென்பொருளுக்காக இலக்கணங்கள்.",
   "main": "மூலம்/லஸ்ஸியிலக்கணங்கள்/வாடிக்கையாளர்.js",
   "scripts": {
-    "test": "echo \"பிழை: சோதனை ஒன்றும் இல்லை.\" && exit 1",
+    "test": "mocha -r esm --recursive \"./சோதனைகள்/*.js\"  --watch",
     "build": "webpack --mode production"
   },
   "repository": {
@@ -17,11 +17,16 @@
     "url": "https://github.com/julienmalard/lassi-ilakkanangal/issues"
   },
   "homepage": "https://github.com/julienmalard/lassi-ilakkanangal#readme",
-  "dependencies": {},
+  "dependencies": {
+    "esm": "^3.2.25"
+  },
   "devDependencies": {
-    "@babel/core": "^7.11.1",
+    "@babel/core": "^7.12.3",
     "babel-loader": "^8.1.0",
-    "webpack": "^4.44.1",
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1",
+    "mocha-loader": "^5.1.5",
+    "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12"
   }
 }

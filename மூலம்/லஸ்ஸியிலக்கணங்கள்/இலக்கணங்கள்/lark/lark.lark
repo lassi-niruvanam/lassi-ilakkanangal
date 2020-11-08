@@ -15,13 +15,13 @@ statement: "%ignore" expansions NL                 -> ignore
 
 import_args: name ("." name)*
 
-expansions: alias (VBAR alias)*
+?expansions: alias (VBAR alias)*
 
-alias: expansion ["->" RULE]
+?alias: expansion ["->" RULE]
 
 expansion: expr*
 
-expr: atom [OP | "~" NUMBER [".." NUMBER]]
+?expr: atom [OP | "~" NUMBER [".." NUMBER]]
 
 atom: "(" expansions ")"
      | "[" expansions "]" -> maybe
