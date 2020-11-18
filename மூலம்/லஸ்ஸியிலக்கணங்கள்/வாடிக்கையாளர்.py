@@ -166,7 +166,11 @@ class நிரல்மொழித்தகவல்கள்(object):
         except ValueError:
             மொழி_நீட்சி = None
         நிரல்மொழி = next((நிரல் for நிரல், மதி in தன்._தகவல்கள்.items() if மதி['நீட்சி'] == நீட்சி), None)
+        from pprint import pprint
+        pprint(தன்._தகவல்கள்)
+        print(1, நிரல்மொழி)
         if நிரல்மொழி:
+            print(2, பெயர்)
             return பெயர், நிரல்மொழி, [தன்.தகவல்(நிரல்மொழி, 'மொழி')]
         try:
             நிரல்மொழி = next(
