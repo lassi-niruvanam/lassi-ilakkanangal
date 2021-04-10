@@ -691,6 +691,8 @@
     "comp_for : \"for\" exprlist \"in\" or_test [ comp_iter ]": {
       "பெயர்ப்பு": {
         "த": "comp_for : \"ஒவ்வொன்றாக\" exprlist or_test \"இல்\" [ comp_iter ]",
+        "മ": "comp_for : \"ഒന്നൊന്നായി\" exprlist or_test \"ഇൽ\" [ comp_iter ]",
+        "mel": "comp_for : \"untuk\" exprlist or_test \"dalam\" [ comp_iter ]",
         "fr": "comp_for : \"pour\" exprlist \"de\" or_test [ comp_iter ]",
         "de": "comp_for : \"für\" \"jedes\" exprlist \"aus\" or_test [ comp_iter ]",
         "rw": "comp_for : \"kuri\" \"buri\" exprlist \"mu\" or_test [ comp_iter ]",
