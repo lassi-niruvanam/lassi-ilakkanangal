@@ -22,5 +22,11 @@
     "3.0.0": {
       "இலக்கணம்": "python_3.lark"
     }
-  }
+  },
+  "சோதனைகள்": [
+    {
+      "கிட்": "https://github.com/python/cpython.git",
+      "வழி": "cpython/Lib/test/**/*.py"
+    }
+  ]
 }

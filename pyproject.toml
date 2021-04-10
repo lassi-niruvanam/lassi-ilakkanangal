@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "lassi-ilakkanankal"
-version = "1.0.12"
+version = "1.0.13"
 description = "லஸ்ஸி மென்பொருளுக்காக இலக்கணம் விவரக்குறிப்புகள்"
 authors = ["julienmalard <julien.malard@mail.mcgill.ca>"]
 license = "AGPL-3.0-or-later"

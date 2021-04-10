@@ -322,6 +322,8 @@
     "pass_stmt : \"pass\"": {
       "பெயர்ப்பு": {
         "த": "pass_stmt : \"விடு\"",
+        "mel": "pass_stmt : \"berlalu\"",
+        "മ": "pass_stmt : \"വിട്ടേക്കുക\"",
         "fr": "pass_stmt : \"passer\"",
         "de": "pass_stmt : \"geh\" \"vorbei\"",
         "rw": "pass_stmt : \"taruka\"",
@@ -352,6 +354,8 @@
     "return_stmt : \"return\" [ testlist ]": {
       "பெயர்ப்பு": {
         "த": "return_stmt : \"பின்கொடு\" [ testlist ]",
+        "mel": "return_stmt : \"memulangkan\" [ testlist ]",
+        "മ": "return_stmt : \"തിരികെ\" \"നൽകുക\" [ testlist ]",
         "fr": "return_stmt : \"renvoie\" [ testlist ]",
         "de": "return_stmt : \"gib\" [ testlist ] \"zurück\"",
         "हिं": "return_stmt : \"लौटा\" [ testlist ]",
@@ -368,6 +372,8 @@
       "பெயர்ப்பு": {
         "汉": "raise_stmt : \"引发\" [ test [ \",\" test [ \",\" test ] ] ]",
         "த": "raise_stmt : \"எழுப்பு\" [ test [ \",\" test [ \",\" test ] ] ]",
+        "mel": "raise_stmt : \"angkat\" [ test [ \",\" test [ \",\" test ] ] ]",
+        "മ": "raise_stmt : \"ഉയർത്തുക\" [ test [ \",\" test [ \",\" test ] ] ]",
         "de": "raise_stmt : \"mache\" \"auf\" [ test [ \",\" test [ \",\" test ] ] ] \"aufmerksam\"",
         "rw": "raise_stmt : \"garagaza\" \"ikibazo\" [ test [ \",\" test [ \",\" test ] ] ]"
       }
@@ -379,6 +385,7 @@
     "import_name : \"import\" dotted_as_names": {
       "பெயர்ப்பு": {
         "த": "import_name : \"உள்ளீடு\" dotted_as_names",
+        "മ": "import_name : \"ഇറക്കുമതി\" dotted_as_names",
         "हिं": "import_name : \"आयात\" dotted_as_names",
         "de": "import_name : \"importiere\" dotted_as_names",
         "rw": "import_name : \"kura\" dotted_as_names",
@@ -440,6 +447,8 @@
     "if_stmt : \"if\" test \":\" suite ( \"elif\" test \":\" suite ) * [ \"else\" \":\" suite ]": {
       "பெயர்ப்பு": {
         "த": "if_stmt : test \"ஆனால்\" \":\" suite ( \"இல்லை\" test \"ஆனால்\" \":\" suite ) * [ \"ஏதேனில்\" \":\" suite ]",
+        "mel": "if_stmt : \"jika\" test \":\" suite ( \"lainjika\" test \":\" suite ) * [ \"lain\" \":\" suite ]",
+        "മ": "if_stmt : test \"എങ്കിൽ\" \":\" suite ( \"അല്ല\" test \"എങ്കിൽ\" \":\" suite ) * [ \"അല്ലെങ്കിൽ\" \":\" suite ]",
         "fr": "if_stmt : \"si\" test \":\" suite ( \"sinonsi\" test \":\" suite ) * [ \"sinon\" \":\" suite ]",
         "de": "if_stmt : \"falls\" test \":\" suite ( \"sonst\" \"falls\" test \":\" suite ) * [ \"sonst\" \":\" suite ]",
         "rw": "if_stmt : \"niba\" test \":\" suite ( \"naho ubundi\" \"niba\" test \":\" suite ) * [ \"naho ubundi\" \":\" suite ]",
@@ -451,15 +460,17 @@
       "பெயர்ப்பு": {
         "த": "while_stmt : test \"வரை\" \":\" suite [ \"ஏதேனில்\" \":\" suite ]",
         "fr": "while_stmt : \"tant\" \"que\" test \":\" suite [ \"sinon\" \":\" suite ]",
-        "日本": "while_stmt : test \"ながら\" \":\" suite [ \"ஏதேனில்\" \":\" suite ]",
+        "日本": "while_stmt : test \"ながら\" \":\" suite [ \"それ以外\" \":\" suite ]",
         "de": "while_stmt : \"so\" \"lange\" test \":\" suite [ \"sonst\" \":\" suite ]",
-        "rw": "while_stmt : \"mugihe\" \"aribyo\" test \":\" suite [ \"naho ubundi\" \":\" suite ]",
-        "हिं": "while_stmt : \"जब तक\" test \":\" suite [ \"नतो\" \":\" suite ]"
+        "rw": "while_stmt : \"mugihe\" \"aribyo\" test \":\" suite [ \"naho\" \"ubundi\" \":\" suite ]",
+        "हिं": "while_stmt : \"जब\" \"तक\" test \":\" suite [ \"नतो\" \":\" suite ]"
       }
     },
     "for_stmt : \"for\" exprlist \"in\" testlist \":\" suite [ \"else\" \":\" suite ]": {
       "பெயர்ப்பு": {
         "த": "for_stmt : \"ஒவ்வொன்றாக\" exprlist testlist \"இல்\" \":\" suite [ \"ஏதேனில்\" \":\" suite ]",
+        "മ": "for_stmt : \"ഒന്നൊന്നായി\" exprlist testlist \"ഇൽ\" \":\" suite [ \"അല്ലെങ്കിൽ\" \":\" suite ]",
+        "mel": "for_stmt : \"untuk\" exprlist \"dalam\" testlist \":\" suite [ \"lain\" \":\" suite ]",
         "fr": "for_stmt : \"pour\" exprlist \"dans\" testlist \":\" suite [ \"sinon\" \":\" suite ]",
         "汉": "for_stmt : \"取\" exprlist \"在\" testlist \":\" suite [ \"否则\" \":\" suite ]",
         "de": "for_stmt : \"für\" \"jedes\" exprlist \"aus\" testlist \":\" suite [ \"sonst\" \":\" suite ]",
@@ -472,7 +483,9 @@
         "de": "try_stmt : ( \"versuche\" \":\" suite ( ( except_clause \":\" suite ) + [ \"sonst\" \":\" suite ] [ \"zuletzt\" \":\" suite ] | \"zuletzt\" \":\" suite ) )",
         "rw": "try_stmt : ( \"gerageza\" \":\" suite ( ( except_clause \":\" suite ) + [ \"naho ubundi\" \":\" suite ] [ \"hanyuma\" \":\" suite ] | \"hanyuma\" \":\" suite ) )",
         "汉": "try_stmt : ( \"尝试\" \":\" suite ( ( except_clause \":\" suite ) + [ \"否则\" \":\" suite ] [ \"最后\" \":\" suite ] | \"最后\" \":\" suite ) )",
-        "த": "try_stmt : ( \"முயற்சி\" \":\" suite ( ( except_clause \":\" suite ) + [ \"ஏதேனில்\" \":\" suite ] [ \"இறுதியாக\" \":\" suite ] | \"இறுதியாக\" \":\" suite ) )"
+        "த": "try_stmt : ( \"முயற்சி\" \":\" suite ( ( except_clause \":\" suite ) + [ \"ஏதேனில்\" \":\" suite ] [ \"இறுதியாக\" \":\" suite ] | \"இறுதியாக\" \":\" suite ) )",
+        "മ": "try_stmt : ( \"ശ്രമിക്കുക\" \":\" suite ( ( except_clause \":\" suite ) + [ \"അല്ലെങ്കിൽ\" \":\" suite ] [ \"അവസാനമായി\" \":\" suite ] | \"അവസാനമായി\" \":\" suite ) )",
+        "mel": "try_stmt : ( \"cuba\" \":\" suite ( ( except_clause \":\" suite ) + [ \"lain\" \":\" suite ] [ \"akhirnya\" \":\" suite ] | \"akhirnya\" \":\" suite ) )"
       }
     },
     "with_stmt : \"with\" with_item ( \",\" with_item ) * \":\" suite": {
@@ -481,7 +494,9 @@
         "de": "with_stmt : \"mit\" with_item ( \",\" with_item ) * \":\" suite",
         "rw": "with_stmt : \"na\" with_item ( \",\" with_item ) * \":\" suite",
         "汉": "with_stmt : \"伴隨\" with_item ( \",\" with_item ) * \":\" suite",
-        "த": "with_stmt : with_item ( \",\" with_item ) * \"உடன்\" \":\" suite"
+        "த": "with_stmt : with_item ( \",\" with_item ) * \"உடன்\" \":\" suite",
+        "മ": "with_stmt : with_item ( \",\" with_item ) * \"കൂടെ\" \":\" suite",
+        "mel": "with_stmt : \"dengan\" with_item ( \",\" with_item ) * \":\" suite"
       }
     },
     "with_item : test [ \"as\" expr ]": {
@@ -489,7 +504,9 @@
         "汉": "with_item : test [ \"作为\" expr ]",
         "de": "with_item : test [ \"als\" expr ]",
         "rw": "with_item : test [ \"nka\" expr ]",
-        "த": "with_item : test [ \"அதாவது\" expr ]"
+        "த": "with_item : test [ \"அதாவது\" expr ]",
+        "മ": "with_item : test [ \"അതായത്\" expr ]",
+        "mel": "with_item : test [ \"iaitu\" expr ]"
       }
     },
     "except_clause : \"except\" [ test [ ( \"as\" | \",\" ) test ] ]": {
@@ -781,6 +798,8 @@
     "funcdef : \"def\" NAME \"(\" parameters ? \")\" [ \"->\" test ] \":\" suite": {
       "பெயர்ப்பு": {
         "த": "funcdef : \"நிரல்பாகம்\" NAME \"(\" parameters ? \")\" [ \"->\" test ] \":\" suite",
+        "mel": "funcdef : \"fungsi\" NAME \"(\" parameters ? \")\" [ \"->\" test ] \":\" suite",
+        "മ": "funcdef : \"പവൃത്തി\" NAME \"(\" parameters ? \")\" [ \"->\" test ] \":\" suite",
         "fr": "funcdef : \"déf\" NAME \"(\" parameters ? \")\" [ \"->\" test ] \":\" suite",
         "de": "funcdef : \"definiere\" NAME \"(\" parameters ? \")\" [ \"->\" test ] \":\" suite",
         "हिं": "funcdef : \"फलन\" NAME \"(\" parameters ? \")\" [ \"->\" test ] \":\" suite",
@@ -975,6 +994,8 @@
     "?atom : \"(\" [ yield_expr | testlist_comp ] \")\" -> tuple \n     | \"[\" [ testlist_comp ] \"]\" -> list \n     | \"{\" [ dictorsetmaker ] \"}\" -> dict \n     | NAME -> var \n     | number | string + \n     | \"(\" test \")\" -> par_group \n     | \"...\" -> ellipsis \n     | \"None\" -> const_none \n     | \"True\" -> const_true \n     | \"False\" -> const_false": {
       "பெயர்ப்பு": {
         "த": "?atom : \"(\" [ yield_expr | testlist_comp ] \")\" -> tuple \n     | \"[\" [ testlist_comp ] \"]\" -> list \n     | \"{\" [ dictorsetmaker ] \"}\" -> dict \n     | NAME -> var \n     | number | string + \n     | \"(\" test \")\" -> par_group \n     | \"...\" -> ellipsis \n     | \"ஒன்றுமில்லை\" -> const_none \n     | \"உண்மை\" -> const_true \n     | \"தப்பு\" -> const_false",
+        "മ": "?atom : \"(\" [ yield_expr | testlist_comp ] \")\" -> tuple \n     | \"[\" [ testlist_comp ] \"]\" -> list \n     | \"{\" [ dictorsetmaker ] \"}\" -> dict \n     | NAME -> var \n     | number | string + \n     | \"(\" test \")\" -> par_group \n     | \"...\" -> ellipsis \n     | \"ഒന്നുമില്ല\" -> const_none \n     | \"ശരിയാണ്\" -> const_true \n     | \"തെറ്റാണ്\" -> const_false",
+        "mel": "?atom : \"(\" [ yield_expr | testlist_comp ] \")\" -> tuple \n     | \"[\" [ testlist_comp ] \"]\" -> list \n     | \"{\" [ dictorsetmaker ] \"}\" -> dict \n     | NAME -> var \n     | number | string + \n     | \"(\" test \")\" -> par_group \n     | \"...\" -> ellipsis \n     | \"tiada\" -> const_none \n     | \"betul\" -> const_true \n     | \"salah\" -> const_false",
         "fr": "?atom : \"(\" [ yield_expr | testlist_comp ] \")\" -> tuple \n     | \"[\" [ testlist_comp ] \"]\" -> list \n     | \"{\" [ dictorsetmaker ] \"}\" -> dict \n     | NAME -> var \n     | number | string + \n     | \"(\" test \")\" -> par_group \n     | \"...\" -> ellipsis \n     | \"Nulle\" -> const_none \n     | \"Vrai\" -> const_true \n     | \"Faux\" -> const_false",
         "de": "?atom : \"(\" [ yield_expr | testlist_comp ] \")\" -> tuple \n     | \"[\" [ testlist_comp ] \"]\" -> list \n     | \"{\" [ dictorsetmaker ] \"}\" -> dict \n     | NAME -> var \n     | number | string + \n     | \"(\" test \")\" -> par_group \n     | \"...\" -> ellipsis \n     | \"Nichts\" -> const_none \n     | \"Wahr\" -> const_true \n     | \"Falsch\" -> const_false",
         "हिं": "?atom : \"(\" [ yield_expr | testlist_comp ] \")\" -> tuple \n     | \"[\" [ testlist_comp ] \"]\" -> list \n     | \"{\" [ dictorsetmaker ] \"}\" -> dict \n     | NAME -> var \n     | number | string + \n     | \"(\" test \")\" -> par_group \n     | \"...\" -> ellipsis \n     | \"रिक्त\" -> const_none \n     | \"सही\" -> const_true \n     | \"ग़लत\" -> const_false",
@@ -1014,6 +1035,8 @@
     "classdef : \"class\" NAME [ \"(\" [ arguments ] \")\" ] \":\" suite": {
       "பெயர்ப்பு": {
         "த": "classdef : \"தொகுப்பு\" NAME [ \"(\" [ arguments ] \")\" ] \":\" suite",
+        "മ": "classdef : \"വര്ഗം\" NAME [ \"(\" [ arguments ] \")\" ] \":\" suite",
+        "mel": "classdef : \"jenis\" NAME [ \"(\" [ arguments ] \")\" ] \":\" suite",
         "fr": "classdef : \"classe\" NAME [ \"(\" [ arguments ] \")\" ] \":\" suite",
         "de": "classdef : NAME \"Klasse\" [ \"(\" [ arguments ] \")\" ] \":\" suite",
         "rw": "classdef : NAME \"icyikiro\" [ \"(\" [ arguments ] \")\" ] \":\" suite",

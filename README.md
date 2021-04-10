@@ -10,4 +10,7 @@
 ## யாவாக்கிறிட்டு நிறுவல்
 > npm install lassi-ilakkanankal
 
+அல்லது...
+> yarn add lassi-ilakkanankal
+
 

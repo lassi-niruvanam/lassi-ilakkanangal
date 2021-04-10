@@ -11,5 +11,11 @@
     "formal_parameter_list": true
   },
   "இலக்கணம்": "javascript.lark",
-  "படிமுறைத்_தீர்வு": "earley"
-  }
+  "படிமுறைத்_தீர்வு": "earley",
+  "சோதனைகள்": [
+    {
+      "கிட்": "https://github.com/tc39/test262.git",
+      "வழி": "test262/test/language/**/*.js"
+    }
+  ]
+}

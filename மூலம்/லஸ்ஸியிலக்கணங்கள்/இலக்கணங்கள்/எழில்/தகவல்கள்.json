@@ -11,5 +11,11 @@
     "getattr": 1,
     "parameters": true
   },
-   "இலக்கணம்": "எழில்.lark"
+  "இலக்கணம்": "எழில்.lark",
+  "சோதனைகள்": [
+    {
+      "கிட்": "https://github.com/Ezhil-Language-Foundation/Ezhil-Lang.git",
+      "வழி": "Ezhil-Lang/tests/**/*.n"
+    }
+  ]
 }
