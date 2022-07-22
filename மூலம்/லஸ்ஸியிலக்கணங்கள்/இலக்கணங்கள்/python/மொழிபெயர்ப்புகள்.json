@@ -325,6 +325,7 @@
         "mel": "pass_stmt : \"berlalu\"",
         "മ": "pass_stmt : \"വിട്ടേക്കുക\"",
         "fr": "pass_stmt : \"passer\"",
+        "pt": "pass_stmt : \"passar\"",
         "de": "pass_stmt : \"geh\" \"vorbei\"",
         "rw": "pass_stmt : \"taruka\"",
         "汉": "pass_stmt : \"略过\"",
