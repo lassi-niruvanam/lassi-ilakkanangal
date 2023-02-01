@@ -1,8 +1,8 @@
 {
   "name": "lassi-ilakkanankal",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "லஸ்ஸி மென்பொருளுக்காக இலக்கணங்கள்.",
-  "main": "மூலம்/லஸ்ஸியிலக்கணங்கள்/வாடிக்கையாளர்.js",
+  "main": "விநியோகம்/வாடிக்கையாளர்.js",
   "scripts": {
     "copierDonnées": "cp -R ../இலக்கணங்கள் மூலம்",
     "indexerGrammaires": "node தகவல்_உருவாக்கு.js",
