@@ -14,18 +14,18 @@ import எழில்_மொழிபெயர்ப்புகள் from "@/
 
 
 export const மொழி_தகவல்கள் = {
-    javascript : javascript_தகவல்கள்,
-    json : json_தகவல்கள்,
-    lark : lark_தகவல்கள்,
-    nearley : nearley_தகவல்கள்,
-    python : python_தகவல்கள்,
-    எழில் : எழில்_தகவல்கள்,
+    javascript: javascript_தகவல்கள்,
+    json: json_தகவல்கள்,
+    lark: lark_தகவல்கள்,
+    nearley: nearley_தகவல்கள்,
+    python: python_தகவல்கள்,
+    எழில்: எழில்_தகவல்கள்,
 }
 export const மொழி_மொழிபெயர்ப்புகள் = {
-        javascript : javascript_மொழிபெயர்ப்புகள்,
-    json : json_மொழிபெயர்ப்புகள்,
-    lark : lark_மொழிபெயர்ப்புகள்,
-    nearley : nearley_மொழிபெயர்ப்புகள்,
-    python : python_மொழிபெயர்ப்புகள்,
-    எழில் : எழில்_மொழிபெயர்ப்புகள்,
-    }
+    javascript: javascript_மொழிபெயர்ப்புகள்,
+    json: json_மொழிபெயர்ப்புகள்,
+    lark: lark_மொழிபெயர்ப்புகள்,
+    nearley: nearley_மொழிபெயர்ப்புகள்,
+    python: python_மொழிபெயர்ப்புகள்,
+    எழில்: எழில்_மொழிபெயர்ப்புகள்,
+}

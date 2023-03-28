@@ -17,7 +17,7 @@
     "paths": {
       "@/*": ["மூலம்/*"]
     },
-    "outDir": "./விநியோக்கம்",
+    "outDir": "./விநியோகம்",
     "sourceMap": true,
     "strict": true,
     "strictPropertyInitialization": false,
