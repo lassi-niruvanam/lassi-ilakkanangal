@@ -1,6 +1,6 @@
 {
   "name": "lassi-ilakkanankal",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "லஸ்ஸி மென்பொருளுக்காக இலக்கணங்கள்.",
   "main": "விநியோகம்/வாடிக்கையாளர்.js",
   "type": "module",
@@ -11,7 +11,7 @@
     "compiler": "pnpm copierDonnées && pnpm indexerGrammaires && pnpm versioner && pnpm nettoyer && pnpm ttsc -p tsconfig.build.json",
     "test": "pnpm copierDonnées && pnpm indexerGrammaires && node --no-warnings --experimental-vm-modules ./node_modules/jest/bin/jest.js --runInBand",
     "couverture": "pnpm test -- --coverage",
-    "formatter": "pnpm prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\" && pnpm eslint --ext .js,.ts src",
+    "formatter": "pnpm prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\" && pnpm eslint --ext .js,.ts மூலம்",
     "publier": "pnpm compiler && (git commit -a -m 'version' || true) && pnpm publish",
     "versioner": "pnpm genversion  --es6 --semi மூலம்/பதிப்பு.ts"
   },

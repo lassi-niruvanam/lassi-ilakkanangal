@@ -27,16 +27,15 @@ export class லஸ்ஸி_இலக்கணங்கள் {
   }
 
   get இலக்கணங்கள்(): { [நிரல்மொழி: string]: நிரல்மொழி_இலக்கணம்_வகை } {
-    return this._இலக்கணங்கள்
+    return this._இலக்கணங்கள்;
   }
 
   get நிரல்மொழிகள்(): string[] {
     return Object.keys(this.இலக்கணங்கள்);
   }
 
-
   பதிப்பு_கண்டறி({ நிரல்மொழி }: { நிரல்மொழி: string }): string {
-    return sort(Object.keys(this.இலக்கணங்கள்[நிரல்மொழி].பதிப்பு))[-1];
+    return sort(Object.keys(this.இலக்கணங்கள்[நிரல்மொழி].பதிப்பு)).at(-1);
   }
 
   நிரல்மொழி_பெயர்({
