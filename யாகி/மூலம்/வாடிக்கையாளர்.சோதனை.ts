@@ -13,6 +13,9 @@ describe("லஸ்ஸி இலக்கணங்கள்", function () {
     });
     it("முன்னேற்றம்", () => {
       for (const நிரல்மொழி of இலக்கணங்கள்.நிரல்மொழிகள்) {
+        const நிறைவு = இலக்கணங்கள்.நிறைவு({ நிரல்மொழி });
+        expect(நிறைவு).toBeLessThanOrEqual(1);
+        expect(நிறைவு).toBeGreaterThanOrEqual(0);
         for (const மொழி of இலக்கணங்கள்.இயற்கை_மொழிகள்({ நிரல்மொழி })) {
           const நிறைவு = இலக்கணங்கள்.நிறைவு({ நிரல்மொழி, மொழி });
           expect(நிறைவு).toBeLessThanOrEqual(1);
