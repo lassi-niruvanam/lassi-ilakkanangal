@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/lassi-niruvanam/lassi-ilakkanangal#readme",
   "devDependencies": {
-    "@constl/ipa": "^0.6.33",
+    "@constl/ipa": "^0.9.0",
     "@typescript-eslint/eslint-plugin": "^5.53.0",
     "@typescript-eslint/parser": "^5.53.0",
     "eslint": "^8.34.0",
@@ -64,7 +64,7 @@
     "testEnvironment": "node"
   },
   "dependencies": {
-    "@constl/ipa": "^0.6.35",
+    "@constl/ipa": "^0.9.0",
     "@lassi-js/kili": "^0.0.5"
   }
 }
