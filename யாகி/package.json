@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/lassi-niruvanam/lassi-ilakkanangal#readme",
   "devDependencies": {
-    "@constl/ipa": "^0.6.33",
+    "@constl/ipa": "^1.0.0",
     "@types/jest": "^29.2.6",
     "@types/semver": "^7.3.13",
     "@typescript-eslint/eslint-plugin": "^5.53.0",
